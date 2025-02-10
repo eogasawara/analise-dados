@@ -766,8 +766,8 @@ b <- c(3910,4220,3885,5160,5645,4680,5265,5975,6790,6900,7335)
 
 
 ``` r
-d <- data.frame(A=a, B=b)
-head(d)
+data <- data.frame(A=a, B=b)
+head(data)
 ```
 
 ```
@@ -784,8 +784,8 @@ head(d)
 
 
 ``` r
-d$c <- d$A + d$B
-head(d)
+data$c <- data$A + data$B
+head(data)
 ```
 
 ```
@@ -800,8 +800,8 @@ head(d)
 
 
 ``` r
-d$A <- NULL
-head(d)
+data$A <- NULL
+head(data)
 ```
 
 ```
@@ -948,7 +948,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.003171921 secs
+## Time difference of 0.001559973 secs
 ```
 
 ``` r
@@ -973,7 +973,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 9.635241 secs
+## Time difference of 12.53602 secs
 ```
 
 #### convert the entire column
@@ -992,7 +992,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.3379328 secs
+## Time difference of 0.5113349 secs
 ```
 
 #### Pipelines
@@ -1039,6 +1039,23 @@ head(flight_data)
 library(dplyr)
 ```
 
+```
+## 
+## Anexando pacote: 'dplyr'
+```
+
+```
+## Os seguintes objetos são mascarados por 'package:stats':
+## 
+##     filter, lag
+```
+
+```
+## Os seguintes objetos são mascarados por 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+```
+
 
 ``` r
 result <- flight_data %>% 
@@ -1055,7 +1072,6 @@ head(result)
 
 
 ``` r
-library(dplyr)
 result <- flight_data %>% 
    group_by(Year) %>% 
    summarize(mean = mean(Flights), sd = sd(Flights))
@@ -1094,32 +1110,6 @@ head(flight_data)
 ## 6 2017       2       9      3
 ```
 
-
-``` r
-#install.packages(reshape)
-library(reshape)
-result <- melt(flight_data[,c('Year', 'Quarter', 'Flights', 'Delays')], 
-             id.vars = c(1,2))
-nrow(result)
-```
-
-```
-## [1] 24
-```
-
-``` r
-head(result[c(1:3,17:19), ])
-```
-
-```
-##    Year Quarter variable value
-## 1  2016       1  Flights    11
-## 2  2016       2  Flights    12
-## 3  2016       3  Flights    13
-## 17 2017       1   Delays     4
-## 18 2017       2   Delays     3
-## 19 2017       3   Delays     4
-```
 
 #### merge
 
