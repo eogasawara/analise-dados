@@ -599,7 +599,6 @@ head(result)
 ```
 
 ```{r}
-library(dplyr)
 result <- flight_data %>% 
    group_by(Year) %>% 
    summarize(mean = mean(Flights), sd = sd(Flights))
@@ -611,14 +610,6 @@ nrow(flight_data)
 head(flight_data)
 ```
 
-```{r}
-#install.packages(reshape)
-library(reshape)
-result <- melt(flight_data[,c('Year', 'Quarter', 'Flights', 'Delays')], 
-             id.vars = c(1,2))
-nrow(result)
-head(result[c(1:3,17:19), ])
-```
 
 #### merge
 
