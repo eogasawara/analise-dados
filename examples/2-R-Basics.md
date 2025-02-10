@@ -1,21 +1,21 @@
 #### Installation of R packages
 
 
-```r
+``` r
 #install.packages("ISwR")
 ```
 
 #### Package loading
 
 
-```r
+``` r
 library(ISwR)
 ```
 
 #### Variable definition and assignment
 
 
-```r
+``` r
 weight <- 60
 height = 1.75
 subject <- "A"
@@ -25,7 +25,7 @@ healthy <- TRUE
 #### Variable evaluation
 
 
-```r
+``` r
 weight
 ```
 
@@ -36,7 +36,7 @@ weight
 #### Functions for type checking
 
 
-```r
+``` r
 is.numeric(weight) # variable 
 ```
 
@@ -44,7 +44,7 @@ is.numeric(weight) # variable
 ## [1] TRUE
 ```
 
-```r
+``` r
 is.double(weight)
 ```
 
@@ -52,7 +52,7 @@ is.double(weight)
 ## [1] TRUE
 ```
 
-```r
+``` r
 is.integer(weight)
 ```
 
@@ -60,7 +60,7 @@ is.integer(weight)
 ## [1] FALSE
 ```
 
-```r
+``` r
 is.character(subject)
 ```
 
@@ -71,7 +71,7 @@ is.character(subject)
 #### Functions for variable conversion
 
 
-```r
+``` r
 weight <- as.integer(weight)
 is.integer(weight)
 ```
@@ -83,7 +83,7 @@ is.integer(weight)
 #### Computing the body mass index (BMI) from the weight and height
 
 
-```r
+``` r
 #Body mass index (BMI)
 bmi <- weight/height^2 
 bmi 
@@ -96,7 +96,7 @@ bmi
 #### Functions for string manipulation
 
 
-```r
+``` r
 message <- sprintf("%.1f", bmi)
 print(message)
 ```
@@ -108,7 +108,7 @@ print(message)
 #### Vector definition
 
 
-```r
+``` r
 weight <- c(60, 72, 57, 90, 95, 72) 
 height <- c(1.75, 1.80, 1.65, 1.90, 1.74, 1.91)
 subject <- c("A", "B", "C", "D", "E", "F")
@@ -117,7 +117,7 @@ subject <- c("A", "B", "C", "D", "E", "F")
 #### Vector evaluation
 
 
-```r
+``` r
 weight
 ```
 
@@ -125,7 +125,7 @@ weight
 ## [1] 60 72 57 90 95 72
 ```
 
-```r
+``` r
 height
 ```
 
@@ -133,7 +133,7 @@ height
 ## [1] 1.75 1.80 1.65 1.90 1.74 1.91
 ```
 
-```r
+``` r
 subject
 ```
 
@@ -144,7 +144,7 @@ subject
 #### Creating a vector with a particular size
 
 
-```r
+``` r
 vec <- rep(0, 10)
 vec
 ```
@@ -156,7 +156,7 @@ vec
 #### Vector length
 
 
-```r
+``` r
 length(weight)
 ```
 
@@ -167,7 +167,7 @@ length(weight)
 #### Vector indexes: from one to the length of the vector
 
 
-```r
+``` r
 weight[1]
 ```
 
@@ -175,7 +175,7 @@ weight[1]
 ## [1] 60
 ```
 
-```r
+``` r
 weight[length(weight)]
 ```
 
@@ -187,7 +187,7 @@ weight[length(weight)]
 from one to the length of weight
 
 
-```r
+``` r
 bmi <- 0
 for (i in 1:length(weight)) {
   bmi[i] <- weight[i]/height[i]^2
@@ -197,7 +197,7 @@ for (i in 1:length(weight)) {
 evaluation of the bmi vector
 
 
-```r
+``` r
 bmi
 ```
 
@@ -209,7 +209,7 @@ bmi
 run while i is below or equal to the length of weight
 
 
-```r
+``` r
 bmi <- 0
 i <- 1
 while (i <= length(weight)) {
@@ -219,7 +219,7 @@ while (i <= length(weight)) {
 ```
 
 
-```r
+``` r
 bmi
 ```
 
@@ -230,19 +230,19 @@ bmi
 #### Remove a variable
 
 
-```r
+``` r
 rm(bmi)
 exists("bmi")
 ```
 
 ```
-## [1] FALSE
+## [1] TRUE
 ```
 
 #### Right way of manipulating vectors: assigning at once
 
 
-```r
+``` r
 bmi <- weight/height^2 
 bmi 
 ```
@@ -255,7 +255,7 @@ bmi
 name <- function(parameters) { body }
 
 
-```r
+``` r
 compute_bmi <- function(weight, height) {
   bmi <- weight/height^2 
   return(bmi)
@@ -265,7 +265,7 @@ compute_bmi <- function(weight, height) {
 #### Using a function with scalars
 
 
-```r
+``` r
 bmi <- compute_bmi(60, 1.75)
 bmi
 ```
@@ -277,7 +277,7 @@ bmi
 #### Using the same function with vectors
 
 
-```r
+``` r
 bmi <- compute_bmi(weight, height)
 bmi
 ```
@@ -290,7 +290,7 @@ bmi
 (iterating in all elements of the vector)
 
 
-```r
+``` r
 average <- function(vec) {
     s <- 0
     n <- length(vec)
@@ -304,7 +304,7 @@ average <- function(vec) {
 invoking the function
 
 
-```r
+``` r
 avg_bmi <- average(bmi)
 avg_bmi
 ```
@@ -317,7 +317,7 @@ avg_bmi
 (manipulating vectors at once)
 
 
-```r
+``` r
 average <- function(vec) {
     s <- sum(vec)
     n <- length(vec)
@@ -328,7 +328,7 @@ average <- function(vec) {
 invoking the function
 
 
-```r
+``` r
 avg_bmi <- average(bmi)
 avg_bmi
 ```
@@ -341,7 +341,7 @@ avg_bmi
 Major statistical functions are available in R
 
 
-```r
+``` r
 average <- function(vec) {
     return(mean(vec))
 }
@@ -350,7 +350,7 @@ average <- function(vec) {
 invoking the function
 
 
-```r
+``` r
 avg_bmi <- average(bmi)
 avg_bmi
 ```
@@ -363,7 +363,7 @@ avg_bmi
 Operations with NA lead to NA.
 
 
-```r
+``` r
 x <- c(10, NA, 13)
 y <- average(x)
 y
@@ -376,14 +376,14 @@ y
 #### addressing NA with na.rm=TRUE
 
 
-```r
+``` r
 average <- function(vec) {
     return(mean(vec, na.rm=TRUE))
 }
 ```
 
 
-```r
+``` r
 x <- c(10, NA, 13)
 y <- average(x)
 y
@@ -397,7 +397,7 @@ y
 scatter plots
 
 
-```r
+``` r
 plot(height, weight)
 ```
 
@@ -406,7 +406,7 @@ plot(height, weight)
 #### Most functions contain many default parameters
 
 
-```r
+``` r
 plot(height, weight, pch=2)
 ```
 
@@ -415,7 +415,7 @@ plot(height, weight, pch=2)
 #### Default function arguments can be shown with args
 
 
-```r
+``` r
 args(plot.default)
 ```
 
@@ -431,14 +431,14 @@ args(plot.default)
 #### All functions in R that belongs to packages have help with examples
 
 
-```r
+``` r
 ?base::plot
 ```
 
 #### Canvas for plotting is still active until a new plot
 
 
-```r
+``` r
 plot(height, weight)
 hh = c(1.65, 1.70, 1.75, 1.80, 1.85, 1.90)
 lines(hh, 22.5 * hh^2)
@@ -450,7 +450,7 @@ lines(hh, 22.5 * hh^2)
 Factors are used to handle categorical data.
 
 
-```r
+``` r
 pain <- c(0,3,2,2,1)
 fpain <- factor(pain,levels=0:3, ordered=TRUE)
 fpain
@@ -464,7 +464,7 @@ fpain
 #### Levels provide correspondence between numerical values and categorical labels
 
 
-```r
+``` r
 levels(fpain) <- c("none","mild","medium","severe")
 fpain
 ```
@@ -480,7 +480,7 @@ Levels: small, medium, high
 #### coding setting element by element
 
 
-```r
+``` r
 lev <- rep("", length(height))
 
 for (i in 1:length(height)) {
@@ -504,7 +504,7 @@ lev
 It uses the cut function.
 
 
-```r
+``` r
 lev <- cut(height, breaks=c(0, 1.7, 1.9, .Machine$double.xmax), ordered=TRUE)
 lev
 ```
@@ -514,7 +514,7 @@ lev
 ## Levels: (0,1.7] < (1.7,1.9] < (1.9,1.8e+308]
 ```
 
-```r
+``` r
 levels(lev) <- c("short", "medium", "tall")
 lev
 ```
@@ -528,7 +528,7 @@ lev
 Matrices can be filled from vectors or data frames. 
 
 
-```r
+``` r
 x <- 1:9
 x
 ```
@@ -540,7 +540,7 @@ x
 #### Converting a vector to matrix
 
 
-```r
+``` r
 dim(x) <- c(3,3)
 x
 ```
@@ -555,7 +555,7 @@ x
 #### accessing elements from a matrix
 
 
-```r
+``` r
 for (i in 1:nrow(x)) 
     for (j in 1:ncol(x))
         print(x[i,j])
@@ -576,7 +576,7 @@ for (i in 1:nrow(x))
 #### Iterating and assigning values to each element
 
 
-```r
+``` r
 y <- x
 for (i in 1:nrow(y)) 
     for (j in 1:ncol(y))
@@ -595,7 +595,7 @@ y
 #### Assigning the values of a matrix at once
 
 
-```r
+``` r
 y <- 3*x
 y
 ```
@@ -610,7 +610,7 @@ y
 #### Converting a vector to a matrix by row
 
 
-```r
+``` r
 x <- matrix(1:9,nrow=3,byrow=T)
 x
 ```
@@ -625,7 +625,7 @@ x
 #### transposing a matrix
 
 
-```r
+``` r
 x <- t(x)
 x
 ```
@@ -640,7 +640,7 @@ x
 #### computing the determinant of a matrix
 
 
-```r
+``` r
 det(x)
 ```
 
@@ -652,7 +652,7 @@ det(x)
 Lists are used to work with "objects"
 
 
-```r
+``` r
 a <- c(5260,5470,5640,6180,6390,6515,6805,7515,7515,8230,8770)
 b <- c(3910,4220,3885,5160,5645,4680,5265,5975,6790,6900,7335)
 
@@ -677,7 +677,7 @@ mybag
 adding an element into a list
 
 
-```r
+``` r
 n <- length(mybag)
 mybag[[n+1]] <- "b"
 mybag
@@ -703,7 +703,7 @@ mybag
 #### List slicing
 
 
-```r
+``` r
 slice <- mybag[1]
 slice
 ```
@@ -713,7 +713,7 @@ slice
 ##  [1] 5260 5470 5640 6180 6390 6515 6805 7515 7515 8230 8770
 ```
 
-```r
+``` r
 is.list(slice)
 ```
 
@@ -724,7 +724,7 @@ is.list(slice)
 #### Slicing is also a list
 
 
-```r
+``` r
 slice <- mybag[c(1,3)]
 slice
 ```
@@ -737,7 +737,7 @@ slice
 ## [1] 0
 ```
 
-```r
+``` r
 is.list(slice)
 ```
 
@@ -748,7 +748,7 @@ is.list(slice)
 #### A list is also a vector
 
 
-```r
+``` r
 #list is also a vector
 is.vector(slice)
 ```
@@ -761,7 +761,7 @@ is.vector(slice)
 It accesses the element
 
 
-```r
+``` r
 h <- mybag[[1]]
 h
 ```
@@ -774,7 +774,7 @@ An element can be evaluated.
 In this case, it is a vector.
 
 
-```r
+``` r
 is.vector(h)
 ```
 
@@ -782,7 +782,7 @@ is.vector(h)
 ## [1] TRUE
 ```
 
-```r
+``` r
 is.list(h)
 ```
 
@@ -794,7 +794,7 @@ is.list(h)
 They are properties on the list
 
 
-```r
+``` r
 mybag <- list(x=a, y=b, const=0, lit="a")
 mybag
 ```
@@ -816,7 +816,7 @@ mybag
 #### Adding, accessing, and removing elements
 
 
-```r
+``` r
 mybag$c <- mybag$x - mybag$y
 mybag$const <- NULL
 mybag$lit <- NULL
@@ -838,7 +838,7 @@ mybag
 Data frames (tables) provide support for structured data. 
 
 
-```r
+``` r
 d <- data.frame(A=a, B=b)
 head(d)
 ```
@@ -856,7 +856,7 @@ head(d)
 #### Adding a column in the data frame 
 
 
-```r
+``` r
 d$c <- d$A + d$B
 head(d)
 ```
@@ -872,7 +872,7 @@ head(d)
 ```
 
 
-```r
+``` r
 d$A <- NULL
 head(d)
 ```
@@ -891,7 +891,7 @@ head(d)
 There are many functions for reading CSV, Excel, and RData formats.
 
 
-```r
+``` r
 wine = read.table(
     "http://archive.ics.uci.edu/ml/machine-learning-databases/wine/wine.data", 
                   header = TRUE, sep = ",")
@@ -916,21 +916,21 @@ head(wine)
 ####  saving in binary format 
 
 
-```r
+``` r
 save(wine, file="wine.RData")
 ```
 
 ####  removing data frame from memory
 
 
-```r
+``` r
 rm(wine)
 ```
 
 ####  load binary format
 
 
-```r
+``` r
 load("wine.RData")
 head(wine, 3)
 ```
@@ -945,14 +945,14 @@ head(wine, 3)
 ####  exporting data.frame into csv file
 
 
-```r
+``` r
 write.table(wine, file="wine.csv", row.names=FALSE, quote = FALSE, sep = ",")
 ```
 
 ####  filtering vectors
 
 
-```r
+``` r
 a <- c(5260,5470,5640,6180,6390,6515,6805,7515,7515,8230,8770)
 b <- c(3910,4220,3885,5160,5645,4680,5265,5975,6790,6900,7335)
 
@@ -966,7 +966,7 @@ bool
 ```
 
 
-```r
+``` r
 # selecting elements from positions that are true
 a[bool] 
 ```
@@ -976,7 +976,7 @@ a[bool]
 ```
 
 
-```r
+``` r
 # filtering with logical expressions
 b[a < 6000 | a > 7000]
 ```
@@ -986,7 +986,7 @@ b[a < 6000 | a > 7000]
 ```
 
 
-```r
+``` r
 b[6000 <= a & a <= 7000]
 ```
 
@@ -997,7 +997,7 @@ b[6000 <= a & a <= 7000]
 ####  filtering data frames
 
 
-```r
+``` r
 data <- data.frame(a=a, b=b)
 data$c <- data$a - data$b
 head(data, nrow(data))
@@ -1019,7 +1019,7 @@ head(data, nrow(data))
 ```
 
 
-```r
+``` r
 head(data[data$a > 7000,])
 ```
 
@@ -1032,7 +1032,7 @@ head(data[data$a > 7000,])
 ```
 
 
-```r
+``` r
 head(data[data$a > 7000,c(1,2)])
 ```
 
@@ -1047,7 +1047,7 @@ head(data[data$a > 7000,c(1,2)])
 #### performance with matrix and data frames
 
 
-```r
+``` r
 rheight <- rnorm(100000, 1.8, sd=0.2)
 rweight <- rnorm(100000, 72, sd=15)
 ```
@@ -1055,7 +1055,7 @@ rweight <- rnorm(100000, 72, sd=15)
 #### computing a entire column at once
 
 
-```r
+``` r
 start_time <- Sys.time()
 hw <- data.frame(height=rheight, weight=rweight)
 hw$bmi <- hw$weight/hw$height^2
@@ -1064,10 +1064,10 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.003860474 secs
+## Time difference of 0.002377987 secs
 ```
 
-```r
+``` r
 object.size(hw)
 ```
 
@@ -1078,7 +1078,7 @@ object.size(hw)
 #### processing cell by cell
 
 
-```r
+``` r
 start_time <- Sys.time()
 hw <- data.frame(height=rheight, weight=rweight)
 for (i in 1:nrow(hw)) {
@@ -1089,13 +1089,13 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 11.5883 secs
+## Time difference of 10.26278 secs
 ```
 
 #### convert the entire column
 
 
-```r
+``` r
 start_time <- Sys.time()
 hw <- data.frame(height=rheight, weight=rweight)
 hw <- as.matrix(hw)
@@ -1108,7 +1108,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.2704763 secs
+## Time difference of 0.368912 secs
 ```
 
 #### apply family
@@ -1118,7 +1118,7 @@ apply functions can be applied for all rows or columns.
 The first character of the function name establishes the return type (s: simple, l: list).
 
 
-```r
+``` r
 library(ISwR)
 data(thuesen)
 head(thuesen)
@@ -1135,7 +1135,7 @@ head(thuesen)
 ```
 
 
-```r
+``` r
 #lapply returns a list
 lapply(thuesen, mean, na.rm=T)
 ```
@@ -1149,7 +1149,7 @@ lapply(thuesen, mean, na.rm=T)
 ```
 
 
-```r
+``` r
 #sapply returns a vector
 sapply(thuesen, mean, na.rm=T)
 ```
@@ -1160,7 +1160,7 @@ sapply(thuesen, mean, na.rm=T)
 ```
 
 
-```r
+``` r
 # apply - second parameter (1: by rows, 2: by columns)
 m <- as.matrix(thuesen)
 apply(m, 1, min, na.rm=TRUE)
@@ -1170,7 +1170,7 @@ apply(m, 1, min, na.rm=TRUE)
 ##  [1] 1.76 1.34 1.27 1.47 1.27 1.49 1.31 1.09 1.18 1.22 1.25 1.19 1.95 1.28 1.52 8.60 1.12 1.37 1.19 1.05 1.32 1.03 1.12 1.70
 ```
 
-```r
+``` r
 apply(m, 2, min, na.rm=TRUE)
 ```
 
@@ -1182,7 +1182,7 @@ apply(m, 2, min, na.rm=TRUE)
 ### sort and order
 
 
-```r
+``` r
 library(ISwR)
 data(thuesen)
 head(thuesen)
@@ -1199,7 +1199,7 @@ head(thuesen)
 ```
 
 
-```r
+``` r
 sort(thuesen$blood.glucose)
 ```
 
@@ -1208,7 +1208,7 @@ sort(thuesen$blood.glucose)
 ```
 
 
-```r
+``` r
 order(thuesen$blood.glucose)
 ```
 
@@ -1217,7 +1217,7 @@ order(thuesen$blood.glucose)
 ```
 
 
-```r
+``` r
 o <- order(thuesen$blood.glucose)
 sorted <- thuesen[o,]
 head(sorted)
@@ -1241,7 +1241,7 @@ The first parameter of the next invoked function receives the data from the pipe
 Library $dplyr$ contains a set of functions that support relational algebra operations.
 
 
-```r
+``` r
 flight_data <- read.table(text = "Year Quarter Flights Delays
                      2016 1 11 6
                      2016 2 12 5
@@ -1270,12 +1270,12 @@ head(flight_data)
 ```
 
 
-```r
+``` r
 #install.packages("dplyr")
 ```
 
 
-```r
+``` r
 library(dplyr)
 result <- flight_data %>% 
    filter(Delays > 5) %>% 
@@ -1283,19 +1283,25 @@ result <- flight_data %>%
 ```
 
 ```
-## Error in select(., Year, Quarter, Flights): unused arguments (Year, Quarter, Flights)
+## Error in select(., Year, Quarter, Flights): argumentos não utilizados (Year, Quarter, Flights)
 ```
 
-```r
+``` r
 head(result)
 ```
 
 ```
-## Error in h(simpleError(msg, call)): error in evaluating the argument 'x' in selecting a method for function 'head': object 'result' not found
+## # A tibble: 4 × 3
+##   country count amount
+##   <chr>   <int>  <dbl>
+## 1 Brazil      2     22
+## 2 France      1     20
+## 3 Japan       1     18
+## 4 US          1     25
 ```
 
 
-```r
+``` r
 library(dplyr)
 result <- flight_data %>% 
    group_by(Year) %>% 
@@ -1313,7 +1319,7 @@ head(result)
 ```
 
 
-```r
+``` r
 nrow(flight_data)
 ```
 
@@ -1321,7 +1327,7 @@ nrow(flight_data)
 ## [1] 12
 ```
 
-```r
+``` r
 head(flight_data)
 ```
 
@@ -1336,7 +1342,7 @@ head(flight_data)
 ```
 
 
-```r
+``` r
 #install.packages(reshape)
 library(reshape)
 result <- melt(flight_data[,c('Year', 'Quarter', 'Flights', 'Delays')], 
@@ -1348,7 +1354,7 @@ nrow(result)
 ## [1] 24
 ```
 
-```r
+``` r
 head(result[c(1:3,17:19), ])
 ```
 
@@ -1367,7 +1373,7 @@ head(result[c(1:3,17:19), ])
 The function $merge$ can be used to join data frames. It can be used to produce inner, left, right, and outer joins. 
 
 
-```r
+``` r
 stores <- data.frame(
   city = c("Rio de Janeiro", "Sao Paulo", "Paris", "New York", "Tokyo"),
   value = c(10, 12, 20, 25, 18))
@@ -1384,7 +1390,7 @@ head(stores)
 ```
 
 
-```r
+``` r
 divisions <- data.frame(
   city = c("Rio de Janeiro", "Sao Paulo", "Paris", "New York", "Tokyo"),
   country = c("Brazil", "Brazil", "France", "US", "Japan"))
@@ -1401,7 +1407,7 @@ head(divisions)
 ```
 
 
-```r
+``` r
 stdiv <- merge(stores, divisions, by.x="city", by.y="city")
 head(stdiv)
 ```
@@ -1416,7 +1422,7 @@ head(stdiv)
 ```
 
 
-```r
+``` r
 result <- stdiv %>% group_by(country) %>% 
    summarize(count = n(), amount = sum(value))
 head(result)
@@ -1437,14 +1443,14 @@ There are many statistical tests in R.
 One of the most used is the t-test. It checks if the mean of observations is not different from a theoretical value.
 
 
-```r
+``` r
 weight <- c(60, 72, 57, 90, 95, 72) 
 height <- c(1.75, 1.80, 1.65, 1.90, 1.74, 1.91)
 bmi <- weight/height^2 
 ```
 
 
-```r
+``` r
 t.test(bmi, mu=22.5)
 ```
 

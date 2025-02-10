@@ -3,7 +3,7 @@ Data Preprocessing
 
 
 
-```r
+``` r
 library(daltoolbox)
 library(ggplot2)
 library(RColorBrewer)
@@ -13,7 +13,7 @@ library(RColorBrewer)
 The exploratory analysis is done using iris dataset.
 
 
-```r
+``` r
 colors <- brewer.pal(4, 'Set1')
 font <- theme(text = element_text(size=16))
 ```
