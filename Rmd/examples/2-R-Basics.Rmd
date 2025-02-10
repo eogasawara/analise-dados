@@ -605,15 +605,7 @@ result <- flight_data |>
 head(result)
 ```
 
-```{r}
-nrow(flight_data)
-head(flight_data)
-```
-
-
-#### merge
-
-The function $merge$ can be used to join data frames. It can be used to produce inner, left, right, and outer joins. 
+Two tables example
 
 ```{r}
 stores <- data.frame(
@@ -628,6 +620,10 @@ divisions <- data.frame(
   country = c("Brazil", "Brazil", "France", "US", "Japan"))
 head(divisions)
 ```
+
+#### merge
+
+The function $merge$ can be used to join data frames. It can be used to produce inner, left, right, and outer joins. 
 
 ```{r}
 stdiv <- merge(stores, divisions, by.x="city", by.y="city")
