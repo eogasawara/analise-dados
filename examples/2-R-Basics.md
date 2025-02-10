@@ -948,7 +948,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.001559973 secs
+## Time difference of 0.001749039 secs
 ```
 
 ``` r
@@ -973,7 +973,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 12.53602 secs
+## Time difference of 12.21921 secs
 ```
 
 #### convert the entire column
@@ -992,7 +992,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.5113349 secs
+## Time difference of 0.5137699 secs
 ```
 
 #### Pipelines
@@ -1039,27 +1039,10 @@ head(flight_data)
 library(dplyr)
 ```
 
-```
-## 
-## Anexando pacote: 'dplyr'
-```
-
-```
-## Os seguintes objetos são mascarados por 'package:stats':
-## 
-##     filter, lag
-```
-
-```
-## Os seguintes objetos são mascarados por 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-```
-
 
 ``` r
-result <- flight_data %>% 
-   filter(Delays > 5) %>% 
+result <- flight_data |> 
+   filter(Delays > 5) |> 
    select(Year, Quarter, Flights)
 head(result)
 ```
@@ -1072,8 +1055,8 @@ head(result)
 
 
 ``` r
-result <- flight_data %>% 
-   group_by(Year) %>% 
+result <- flight_data |> 
+   group_by(Year) |> 
    summarize(mean = mean(Flights), sd = sd(Flights))
 head(result)
 ```
@@ -1166,7 +1149,7 @@ head(stdiv)
 
 
 ``` r
-result <- stdiv %>% group_by(country) %>% 
+result <- stdiv |> group_by(country) |> 
    summarize(count = n(), amount = sum(value))
 head(result)
 ```
