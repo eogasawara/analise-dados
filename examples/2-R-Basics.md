@@ -948,7 +948,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.00408411 secs
+## Time difference of 0.003171921 secs
 ```
 
 ``` r
@@ -973,7 +973,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 19.61969 secs
+## Time difference of 9.635241 secs
 ```
 
 #### convert the entire column
@@ -992,7 +992,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 1.256908 secs
+## Time difference of 0.3379328 secs
 ```
 
 #### Pipelines
@@ -1036,12 +1036,11 @@ head(flight_data)
 
 
 ``` r
-#install.packages("dplyr")
+library(dplyr)
 ```
 
 
 ``` r
-library(dplyr)
 result <- flight_data %>% 
    filter(Delays > 5) %>% 
    select(Year, Quarter, Flights)

@@ -588,11 +588,10 @@ head(flight_data)
 ```
 
 ```{r}
-#install.packages("dplyr")
+library(dplyr)
 ```
 
 ```{r}
-library(dplyr)
 result <- flight_data %>% 
    filter(Delays > 5) %>% 
    select(Year, Quarter, Flights)
