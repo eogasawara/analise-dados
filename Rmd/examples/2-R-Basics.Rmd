@@ -342,26 +342,6 @@ dim(x) <- c(3,3)
 x
 ```
 
-#### accessing elements from a matrix
-
-```{r}
-for (i in 1:nrow(x)) 
-    for (j in 1:ncol(x))
-        print(x[i,j])
-    
-```
-
-#### Iterating and assigning values to each element
-
-```{r}
-y <- x
-for (i in 1:nrow(y)) 
-    for (j in 1:ncol(y))
-        y[i,j] <- 3 * y[i, j]
-    
-y
-```
-
 #### Assigning the values of a matrix at once
 
 ```{r}

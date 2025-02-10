@@ -560,46 +560,6 @@ x
 ## [3,]    3    6    9
 ```
 
-#### accessing elements from a matrix
-
-
-``` r
-for (i in 1:nrow(x)) 
-    for (j in 1:ncol(x))
-        print(x[i,j])
-```
-
-```
-## [1] 1
-## [1] 4
-## [1] 7
-## [1] 2
-## [1] 5
-## [1] 8
-## [1] 3
-## [1] 6
-## [1] 9
-```
-
-#### Iterating and assigning values to each element
-
-
-``` r
-y <- x
-for (i in 1:nrow(y)) 
-    for (j in 1:ncol(y))
-        y[i,j] <- 3 * y[i, j]
-    
-y
-```
-
-```
-##      [,1] [,2] [,3]
-## [1,]    3   12   21
-## [2,]    6   15   24
-## [3,]    9   18   27
-```
-
 #### Assigning the values of a matrix at once
 
 
@@ -1072,7 +1032,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.002839088 secs
+## Time difference of 0.001902103 secs
 ```
 
 ``` r
@@ -1097,7 +1057,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 9.280456 secs
+## Time difference of 10.85542 secs
 ```
 
 #### convert the entire column
@@ -1116,7 +1076,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.2938452 secs
+## Time difference of 0.3429079 secs
 ```
 
 #### apply family
