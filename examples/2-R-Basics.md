@@ -236,7 +236,7 @@ exists("bmi")
 ```
 
 ```
-## [1] TRUE
+## [1] FALSE
 ```
 
 #### Right way of manipulating vectors: assigning at once
@@ -901,66 +901,14 @@ a[bool]
 ```
 ## [1] 7515 7515 8230 8770
 ```
-
-
-``` r
-# filtering with logical expressions
-b[a < 6000 | a > 7000]
-```
-
-```
-## [1] 3910 4220 3885 5975 6790 6900 7335
-```
-
-
-``` r
-b[6000 <= a & a <= 7000]
-```
-
-```
-## [1] 5160 5645 4680 5265
-```
-
 ####  filtering data frames
 
 
 ``` r
-data <- data.frame(a=a, b=b)
-data$c <- data$a - data$b
-head(data, nrow(data))
-```
-
-```
-##       a    b    c
-## 1  5260 3910 1350
-## 2  5470 4220 1250
-## 3  5640 3885 1755
-## 4  6180 5160 1020
-## 5  6390 5645  745
-## 6  6515 4680 1835
-## 7  6805 5265 1540
-## 8  7515 5975 1540
-## 9  7515 6790  725
-## 10 8230 6900 1330
-## 11 8770 7335 1435
-```
-
-
-``` r
+a <- c(5260,5470,5640,6180,6390,6515,6805,7515,7515,8230,8770)
+b <- c(3910,4220,3885,5160,5645,4680,5265,5975,6790,6900,7335)
+data <- data.frame(a = a, b = b)
 head(data[data$a > 7000,])
-```
-
-```
-##       a    b    c
-## 8  7515 5975 1540
-## 9  7515 6790  725
-## 10 8230 6900 1330
-## 11 8770 7335 1435
-```
-
-
-``` r
-head(data[data$a > 7000,c(1,2)])
 ```
 
 ```
@@ -969,6 +917,15 @@ head(data[data$a > 7000,c(1,2)])
 ## 9  7515 6790
 ## 10 8230 6900
 ## 11 8770 7335
+```
+
+
+``` r
+head(data[data$a > 7000,c(1)])
+```
+
+```
+## [1] 7515 7515 8230 8770
 ```
 
 #### performance with matrix and data frames
@@ -991,7 +948,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.001689196 secs
+## Time difference of 0.002787828 secs
 ```
 
 ``` r
@@ -1016,7 +973,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 8.907526 secs
+## Time difference of 8.879036 secs
 ```
 
 #### convert the entire column
@@ -1035,129 +992,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.304975 secs
-```
-
-#### apply family
-
-apply functions can be applied for all rows or columns. 
-
-The first character of the function name establishes the return type (s: simple, l: list).
-
-
-``` r
-library(ISwR)
-data(thuesen)
-head(thuesen)
-```
-
-```
-##   blood.glucose short.velocity
-## 1          15.3           1.76
-## 2          10.8           1.34
-## 3           8.1           1.27
-## 4          19.5           1.47
-## 5           7.2           1.27
-## 6           5.3           1.49
-```
-
-
-``` r
-#lapply returns a list
-lapply(thuesen, mean, na.rm=T)
-```
-
-```
-## $blood.glucose
-## [1] 10.3
-## 
-## $short.velocity
-## [1] 1.325652
-```
-
-
-``` r
-#sapply returns a vector
-sapply(thuesen, mean, na.rm=T)
-```
-
-```
-##  blood.glucose short.velocity 
-##      10.300000       1.325652
-```
-
-
-``` r
-# apply - second parameter (1: by rows, 2: by columns)
-m <- as.matrix(thuesen)
-apply(m, 1, min, na.rm=TRUE)
-```
-
-```
-##  [1] 1.76 1.34 1.27 1.47 1.27 1.49 1.31 1.09 1.18 1.22 1.25 1.19 1.95 1.28 1.52 8.60 1.12 1.37 1.19 1.05 1.32 1.03 1.12 1.70
-```
-
-``` r
-apply(m, 2, min, na.rm=TRUE)
-```
-
-```
-##  blood.glucose short.velocity 
-##           4.20           1.03
-```
-
-### sort and order
-
-
-``` r
-library(ISwR)
-data(thuesen)
-head(thuesen)
-```
-
-```
-##   blood.glucose short.velocity
-## 1          15.3           1.76
-## 2          10.8           1.34
-## 3           8.1           1.27
-## 4          19.5           1.47
-## 5           7.2           1.27
-## 6           5.3           1.49
-```
-
-
-``` r
-sort(thuesen$blood.glucose)
-```
-
-```
-##  [1]  4.2  4.9  5.2  5.3  6.7  6.7  7.2  7.5  8.1  8.6  8.8  9.3  9.5 10.3 10.8 11.1 12.2 12.5 13.3 15.1 15.3 16.1 19.0 19.5
-```
-
-
-``` r
-order(thuesen$blood.glucose)
-```
-
-```
-##  [1] 17 22 12  6 11 15  5  9  3 16 23  7 24 18  2  8 10 19 21 14  1 20 13  4
-```
-
-
-``` r
-o <- order(thuesen$blood.glucose)
-sorted <- thuesen[o,]
-head(sorted)
-```
-
-```
-##    blood.glucose short.velocity
-## 17           4.2           1.12
-## 22           4.9           1.03
-## 12           5.2           1.19
-## 6            5.3           1.49
-## 11           6.7           1.25
-## 15           6.7           1.52
+## Time difference of 0.363081 secs
 ```
 
 #### Pipelines
@@ -1218,13 +1053,7 @@ head(result)
 ```
 
 ```
-## # A tibble: 4 × 3
-##   country count amount
-##   <chr>   <int>  <dbl>
-## 1 Brazil      2     22
-## 2 France      1     20
-## 3 Japan       1     18
-## 4 US          1     25
+## Error: objeto 'result' não encontrado
 ```
 
 
