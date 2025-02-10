@@ -484,7 +484,7 @@ Levels: small, medium, high
 lev <- rep("", length(height))
 
 for (i in 1:length(height)) {
-  if (height[i] < 1.7)
+  if (height[i] < 1.5)
     lev[i] <- "short"
   else if (height[i] < 1.9)
     lev[i] <- "medium"
@@ -496,8 +496,8 @@ lev
 ```
 
 ```
-## [1] medium medium short  tall   medium tall  
-## Levels: medium short tall
+## [1] medium medium medium tall   medium tall  
+## Levels: medium tall
 ```
 
 #### coding setting the vector at once
@@ -505,13 +505,13 @@ It uses the cut function.
 
 
 ``` r
-lev <- cut(height, breaks=c(0, 1.7, 1.9, .Machine$double.xmax), ordered=TRUE)
+lev <- cut(height, breaks=c(0, 1.5, 1.9, .Machine$double.xmax), ordered=TRUE)
 lev
 ```
 
 ```
-## [1] (1.7,1.9]      (1.7,1.9]      (0,1.7]        (1.7,1.9]      (1.7,1.9]      (1.9,1.8e+308]
-## Levels: (0,1.7] < (1.7,1.9] < (1.9,1.8e+308]
+## [1] (1.5,1.9]      (1.5,1.9]      (1.5,1.9]      (1.5,1.9]      (1.5,1.9]      (1.9,1.8e+308]
+## Levels: (0,1.5] < (1.5,1.9] < (1.9,1.8e+308]
 ```
 
 ``` r
@@ -520,7 +520,7 @@ lev
 ```
 
 ```
-## [1] medium medium short  medium medium tall  
+## [1] medium medium medium medium medium tall  
 ## Levels: short < medium < tall
 ```
 
@@ -1064,7 +1064,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.002377987 secs
+## Time difference of 0.001589775 secs
 ```
 
 ``` r
@@ -1089,7 +1089,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 10.26278 secs
+## Time difference of 10.02664 secs
 ```
 
 #### convert the entire column
@@ -1108,7 +1108,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.368912 secs
+## Time difference of 0.3052962 secs
 ```
 
 #### apply family
