@@ -503,30 +503,14 @@ bool
 # selecting elements from positions that are true
 a[bool] 
 ```
-
-```{r}
-# filtering with logical expressions
-b[a < 6000 | a > 7000]
-```
-
-```{r}
-b[6000 <= a & a <= 7000]
-```
-
 ####  filtering data frames
-
-```{r}
-data <- data.frame(a=a, b=b)
-data$c <- data$a - data$b
-head(data, nrow(data))
-```
 
 ```{r}
 head(data[data$a > 7000,])
 ```
 
 ```{r}
-head(data[data$a > 7000,c(1,2)])
+head(data[data$a > 7000,c(1)])
 ```
 
 #### performance with matrix and data frames
