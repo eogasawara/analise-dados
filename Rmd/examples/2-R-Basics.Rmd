@@ -390,13 +390,6 @@ slice
 is.list(slice)
 ```
 
-#### A list is also a vector
-
-```{r}
-#list is also a vector
-is.vector(slice)
-```
-
 #### Member reference
 It accesses the element
 
@@ -432,6 +425,11 @@ mybag
 
 #### Data frames
 Data frames (tables) provide support for structured data. 
+
+```{r}
+a <- c(5260,5470,5640,6180,6390,6515,6805,7515,7515,8230,8770)
+b <- c(3910,4220,3885,5160,5645,4680,5265,5975,6790,6900,7335)
+```
 
 ```{r}
 d <- data.frame(A=a, B=b)

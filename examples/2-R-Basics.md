@@ -678,18 +678,6 @@ is.list(slice)
 ## [1] TRUE
 ```
 
-#### A list is also a vector
-
-
-``` r
-#list is also a vector
-is.vector(slice)
-```
-
-```
-## [1] TRUE
-```
-
 #### Member reference
 It accesses the element
 
@@ -769,6 +757,12 @@ mybag
 
 #### Data frames
 Data frames (tables) provide support for structured data. 
+
+
+``` r
+a <- c(5260,5470,5640,6180,6390,6515,6805,7515,7515,8230,8770)
+b <- c(3910,4220,3885,5160,5645,4680,5265,5975,6790,6900,7335)
+```
 
 
 ``` r
@@ -997,7 +991,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.002095938 secs
+## Time difference of 0.001689196 secs
 ```
 
 ``` r
@@ -1022,7 +1016,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 9.168604 secs
+## Time difference of 8.907526 secs
 ```
 
 #### convert the entire column
@@ -1041,7 +1035,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.290014 secs
+## Time difference of 0.304975 secs
 ```
 
 #### apply family
