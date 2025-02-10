@@ -948,7 +948,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.002787828 secs
+## Time difference of 0.00204587 secs
 ```
 
 ``` r
@@ -973,7 +973,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 8.879036 secs
+## Time difference of 24.05876 secs
 ```
 
 #### convert the entire column
@@ -992,11 +992,11 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.363081 secs
+## Time difference of 1.200928 secs
 ```
 
 #### Pipelines
-The operator $\%$>$\%$ creates a pipeline. 
+The operator |> creates a pipeline. 
 
 The first parameter of the next invoked function receives the data from the pipeline. 
 
@@ -1039,21 +1039,36 @@ head(flight_data)
 
 ``` r
 library(dplyr)
-result <- flight_data %>% 
-   filter(Delays > 5) %>% 
-   select(Year, Quarter, Flights)
 ```
 
 ```
-## Error in select(., Year, Quarter, Flights): argumentos não utilizados (Year, Quarter, Flights)
+## 
+## Anexando pacote: 'dplyr'
+```
+
+```
+## Os seguintes objetos são mascarados por 'package:stats':
+## 
+##     filter, lag
+```
+
+```
+## Os seguintes objetos são mascarados por 'package:base':
+## 
+##     intersect, setdiff, setequal, union
 ```
 
 ``` r
+result <- flight_data %>% 
+   filter(Delays > 5) %>% 
+   select(Year, Quarter, Flights)
 head(result)
 ```
 
 ```
-## Error: objeto 'result' não encontrado
+##   Year Quarter Flights
+## 1 2016       1      11
+## 2 2017       4      25
 ```
 
 
@@ -1101,6 +1116,20 @@ head(flight_data)
 ``` r
 #install.packages(reshape)
 library(reshape)
+```
+
+```
+## 
+## Anexando pacote: 'reshape'
+```
+
+```
+## O seguinte objeto é mascarado por 'package:dplyr':
+## 
+##     rename
+```
+
+``` r
 result <- melt(flight_data[,c('Year', 'Quarter', 'Flights', 'Delays')], 
              id.vars = c(1,2))
 nrow(result)

@@ -561,7 +561,7 @@ end_time - start_time
 ```
 
 #### Pipelines
-The operator $\%$>$\%$ creates a pipeline. 
+The operator |> creates a pipeline. 
 
 The first parameter of the next invoked function receives the data from the pipeline. 
 
