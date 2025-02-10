@@ -592,15 +592,15 @@ library(dplyr)
 ```
 
 ```{r}
-result <- flight_data %>% 
-   filter(Delays > 5) %>% 
+result <- flight_data |> 
+   filter(Delays > 5) |> 
    select(Year, Quarter, Flights)
 head(result)
 ```
 
 ```{r}
-result <- flight_data %>% 
-   group_by(Year) %>% 
+result <- flight_data |> 
+   group_by(Year) |> 
    summarize(mean = mean(Flights), sd = sd(Flights))
 head(result)
 ```
@@ -635,7 +635,7 @@ head(stdiv)
 ```
 
 ```{r}
-result <- stdiv %>% group_by(country) %>% 
+result <- stdiv |> group_by(country) |> 
    summarize(count = n(), amount = sum(value))
 head(result)
 ```
