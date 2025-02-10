@@ -605,17 +605,6 @@ x
 ## [3,]    3    6    9
 ```
 
-#### computing the determinant of a matrix
-
-
-``` r
-det(x)
-```
-
-```
-## [1] 0
-```
-
 #### Lists
 Lists are used to work with "objects"
 
@@ -679,30 +668,6 @@ slice
 ```
 ## [[1]]
 ##  [1] 5260 5470 5640 6180 6390 6515 6805 7515 7515 8230 8770
-```
-
-``` r
-is.list(slice)
-```
-
-```
-## [1] TRUE
-```
-
-#### Slicing is also a list
-
-
-``` r
-slice <- mybag[c(1,3)]
-slice
-```
-
-```
-## [[1]]
-##  [1] 5260 5470 5640 6180 6390 6515 6805 7515 7515 8230 8770
-## 
-## [[2]]
-## [1] 0
 ```
 
 ``` r
@@ -1032,7 +997,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.001902103 secs
+## Time difference of 0.002095938 secs
 ```
 
 ``` r
@@ -1057,7 +1022,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 10.85542 secs
+## Time difference of 9.168604 secs
 ```
 
 #### convert the entire column
@@ -1076,7 +1041,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.3429079 secs
+## Time difference of 0.290014 secs
 ```
 
 #### apply family

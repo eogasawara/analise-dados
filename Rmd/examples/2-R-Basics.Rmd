@@ -363,12 +363,6 @@ x <- t(x)
 x
 ```
 
-#### computing the determinant of a matrix
-
-```{r}
-det(x)
-```
-
 #### Lists
 Lists are used to work with "objects"
 
@@ -392,14 +386,6 @@ mybag
 
 ```{r}
 slice <- mybag[1]
-slice
-is.list(slice)
-```
-
-#### Slicing is also a list
-
-```{r}
-slice <- mybag[c(1,3)]
 slice
 is.list(slice)
 ```
