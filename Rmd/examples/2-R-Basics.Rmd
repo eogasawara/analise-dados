@@ -582,6 +582,8 @@ flight_data <- read.table(text = "Year Quarter Flights Delays
                      2018 3 13 3
                      2018 4 15 4",
                      header = TRUE,sep = "")  
+```
+```{r}
 head(flight_data)
 ```
 
