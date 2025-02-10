@@ -394,6 +394,14 @@ y
 ```
 
 #### Plotting graphics
+
+
+``` r
+weight <- c(60, 72, 57, 90, 95, 72) 
+height <- c(1.75, 1.80, 1.65, 1.90, 1.74, 1.91)
+bmi <- weight/height^2 
+```
+
 scatter plots
 
 
@@ -401,7 +409,7 @@ scatter plots
 plot(height, weight)
 ```
 
-![plot of chunk unnamed-chunk-32](fig/2-R-Basics/unnamed-chunk-32-1.png)
+![plot of chunk unnamed-chunk-33](fig/2-R-Basics/unnamed-chunk-33-1.png)
 
 #### Most functions contain many default parameters
 
@@ -410,7 +418,7 @@ plot(height, weight)
 plot(height, weight, pch=2)
 ```
 
-![plot of chunk unnamed-chunk-33](fig/2-R-Basics/unnamed-chunk-33-1.png)
+![plot of chunk unnamed-chunk-34](fig/2-R-Basics/unnamed-chunk-34-1.png)
 
 #### Default function arguments can be shown with args
 
@@ -444,7 +452,7 @@ hh = c(1.65, 1.70, 1.75, 1.80, 1.85, 1.90)
 lines(hh, 22.5 * hh^2)
 ```
 
-![plot of chunk unnamed-chunk-36](fig/2-R-Basics/unnamed-chunk-36-1.png)
+![plot of chunk unnamed-chunk-37](fig/2-R-Basics/unnamed-chunk-37-1.png)
 
 #### Factors
 Factors are used to handle categorical data.
@@ -1064,7 +1072,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.001589775 secs
+## Time difference of 0.002839088 secs
 ```
 
 ``` r
@@ -1089,7 +1097,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 10.02664 secs
+## Time difference of 9.280456 secs
 ```
 
 #### convert the entire column
@@ -1108,7 +1116,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.3052962 secs
+## Time difference of 0.2938452 secs
 ```
 
 #### apply family

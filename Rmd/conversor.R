@@ -64,10 +64,16 @@ if (FALSE) {
 
 dir <- "Rmd"
 texs <- list.files(path = dir, pattern = ".Rmd$", full.names = TRUE, recursive = TRUE)
-if (TRUE) {
+if (FALSE) {
   for (tex in texs) {
     print(tex)
     convert_rmd_md(tex)
   }
 }
+
+
+if (TRUE) {
+  convert_rmd_md("Rmd/examples/2-R-Basics.Rmd")
+}
+
 
