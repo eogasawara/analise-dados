@@ -948,7 +948,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.001749039 secs
+## Time difference of 0.00186801 secs
 ```
 
 ``` r
@@ -973,7 +973,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 12.21921 secs
+## Time difference of 11.63171 secs
 ```
 
 #### convert the entire column
@@ -992,7 +992,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.5137699 secs
+## Time difference of 0.6197469 secs
 ```
 
 #### Pipelines
@@ -1070,33 +1070,7 @@ head(result)
 ## 3  2018  13.5 1.29
 ```
 
-
-``` r
-nrow(flight_data)
-```
-
-```
-## [1] 12
-```
-
-``` r
-head(flight_data)
-```
-
-```
-##   Year Quarter Flights Delays
-## 1 2016       1      11      6
-## 2 2016       2      12      5
-## 3 2016       3      13      3
-## 4 2016       4      12      5
-## 5 2017       1      10      4
-## 6 2017       2       9      3
-```
-
-
-#### merge
-
-The function $merge$ can be used to join data frames. It can be used to produce inner, left, right, and outer joins. 
+Two tables example
 
 
 ``` r
@@ -1131,6 +1105,10 @@ head(divisions)
 ## 4       New York      US
 ## 5          Tokyo   Japan
 ```
+
+#### merge
+
+The function $merge$ can be used to join data frames. It can be used to produce inner, left, right, and outer joins. 
 
 
 ``` r
