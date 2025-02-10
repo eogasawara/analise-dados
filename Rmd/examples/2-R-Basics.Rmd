@@ -432,20 +432,20 @@ b <- c(3910,4220,3885,5160,5645,4680,5265,5975,6790,6900,7335)
 ```
 
 ```{r}
-d <- data.frame(A=a, B=b)
-head(d)
+data <- data.frame(A=a, B=b)
+head(data)
 ```
 
 #### Adding a column in the data frame 
 
 ```{r}
-d$c <- d$A + d$B
-head(d)
+data$c <- data$A + data$B
+head(data)
 ```
 
 ```{r}
-d$A <- NULL
-head(d)
+data$A <- NULL
+head(data)
 ```
 
 ####  Reading csv file
