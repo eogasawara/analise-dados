@@ -440,7 +440,7 @@ args(plot.default)
 
 
 ``` r
-?base::plot
+#?base::plot
 ```
 
 #### Canvas for plotting is still active until a new plot
@@ -948,7 +948,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.002971888 secs
+## Time difference of 0.002383947 secs
 ```
 
 ``` r
@@ -973,7 +973,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 10.37706 secs
+## Time difference of 8.030348 secs
 ```
 
 #### convert the entire column
@@ -992,7 +992,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.4925082 secs
+## Time difference of 0.4844711 secs
 ```
 
 #### Pipelines
@@ -1178,27 +1178,19 @@ Library reticulate enables seamless integration with Python.
 ``` r
 library(reticulate)
 source_python('https://raw.githubusercontent.com/eogasawara/analise-dados/refs/heads/main/examples/module.py')
-```
-
-```
-## No module named 'pyreadr'
-```
-
-``` r
 x <- add(5, 10)
-```
 
-```
-## Error in add(5, 10): não foi possível encontrar a função "add"
-```
-
-``` r
 data <- data.frame(x = c(1:5), y=c(11:15))
 dfm <- read_rdata_mem(data)
 ```
 
 ```
-## Error in read_rdata_mem(data): não foi possível encontrar a função "read_rdata_mem"
+## 0    1
+## 1    2
+## 2    3
+## 3    4
+## 4    5
+## Name: x, dtype: int32
 ```
 
 ``` r
@@ -1206,5 +1198,10 @@ head(dfm)
 ```
 
 ```
-## Error: objeto 'dfm' não encontrado
+##   x  y  z
+## 1 1 11 12
+## 2 2 12 14
+## 3 3 13 16
+## 4 4 14 18
+## 5 5 15 20
 ```
