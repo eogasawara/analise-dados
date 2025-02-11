@@ -584,7 +584,9 @@ y
 ## [3,]    9   18   27
 ```
 
-#### Converting a vector to a matrix by row
+#### Matrix manipulation
+
+Converting a vector to a matrix by row
 
 
 ``` r
@@ -599,7 +601,7 @@ x
 ## [3,]    7    8    9
 ```
 
-#### transposing a matrix
+transposing a matrix
 
 
 ``` r
@@ -979,7 +981,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.001769066 secs
+## Time difference of 0.002799988 secs
 ```
 
 ``` r
@@ -1004,7 +1006,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 7.163375 secs
+## Time difference of 7.439693 secs
 ```
 
 #### Converting a data frame to a matrix, processing it, and going back
@@ -1028,7 +1030,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.2786911 secs
+## Time difference of 0.272609 secs
 ```
 
 #### Pipelines

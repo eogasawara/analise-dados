@@ -369,14 +369,16 @@ y <- 3*x
 y
 ```
 
-#### Converting a vector to a matrix by row
+#### Matrix manipulation
+
+Converting a vector to a matrix by row
 
 ```{r}
 x <- matrix(1:9,nrow=3,byrow=T)
 x
 ```
 
-#### transposing a matrix
+transposing a matrix
 
 ```{r}
 x <- t(x)
