@@ -521,7 +521,6 @@ write.table(wine, file="wine.csv", row.names=FALSE, quote = FALSE, sep = ",")
 
 ```{r}
 a <- c(5260,5470,5640,6180,6390,6515,6805,7515,7515,8230,8770)
-b <- c(3910,4220,3885,5160,5645,4680,5265,5975,6790,6900,7335)
 
 # logical vector
 bool <- (a > 7000)
@@ -531,6 +530,9 @@ bool
 ```{r}
 # selecting elements from positions that are true
 a[bool] 
+
+a[a > 7000] 
+
 ```
 ####  filtering data frames
 
