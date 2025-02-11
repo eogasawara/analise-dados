@@ -948,7 +948,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.002266169 secs
+## Time difference of 0.00262022 secs
 ```
 
 ``` r
@@ -973,7 +973,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 7.486593 secs
+## Time difference of 7.508858 secs
 ```
 
 #### convert the entire column
@@ -992,7 +992,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.5133462 secs
+## Time difference of 0.287662 secs
 ```
 
 #### Pipelines
@@ -1177,14 +1177,39 @@ Library reticulate enables seamless integration with Python.
 
 ``` r
 library(reticulate)
-source_python('https://raw.githubusercontent.com/eogasawara/analise-dados/refs/heads/main/python/module.py')
+source_python('https://raw.githubusercontent.com/eogasawara/analise-dados/refs/heads/main/python/retic.py')
+```
+
+```
+## Warning in utils::download.file(url = file, destfile = tmpfile, quiet = TRUE): cannot open URL
+## 'https://raw.githubusercontent.com/eogasawara/analise-dados/refs/heads/main/python/retic.py': HTTP status was '404 Not Found'
+```
+
+```
+## Error in utils::download.file(url = file, destfile = tmpfile, quiet = TRUE): não foi possível abrir a URL 'https://raw.githubusercontent.com/eogasawara/analise-dados/refs/heads/main/python/retic.py'
+```
+
+``` r
 x <- add(5, 10)
+```
+
+```
+## Error in add(5, 10): não foi possível encontrar a função "add"
+```
+
+``` r
 x
 ```
 
 ```
-## [1] 15
+##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9
 ```
+
+
+Handling tables.
 
 
 ``` r
@@ -1193,12 +1218,7 @@ dfm <- read_rdata_mem(data)
 ```
 
 ```
-## 0    1
-## 1    2
-## 2    3
-## 3    4
-## 4    5
-## Name: x, dtype: int32
+## Error in read_rdata_mem(data): não foi possível encontrar a função "read_rdata_mem"
 ```
 
 ``` r
@@ -1206,10 +1226,5 @@ head(dfm)
 ```
 
 ```
-##   x  y  z
-## 1 1 11 12
-## 2 2 12 14
-## 3 3 13 16
-## 4 4 14 18
-## 5 5 15 20
+## Error: objeto 'dfm' não encontrado
 ```
