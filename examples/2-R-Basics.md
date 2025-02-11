@@ -440,7 +440,7 @@ args(plot.default)
 
 
 ``` r
-#?base::plot
+?base::plot
 ```
 
 #### Canvas for plotting is still active until a new plot
@@ -948,7 +948,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.002383947 secs
+## Time difference of 0.002326012 secs
 ```
 
 ``` r
@@ -973,7 +973,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 8.030348 secs
+## Time difference of 8.303278 secs
 ```
 
 #### convert the entire column
@@ -992,7 +992,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.4844711 secs
+## Time difference of 0.2916591 secs
 ```
 
 #### Pipelines
@@ -1179,7 +1179,15 @@ Library reticulate enables seamless integration with Python.
 library(reticulate)
 source_python('https://raw.githubusercontent.com/eogasawara/analise-dados/refs/heads/main/examples/module.py')
 x <- add(5, 10)
+x
+```
 
+```
+## [1] 15
+```
+
+
+``` r
 data <- data.frame(x = c(1:5), y=c(11:15))
 dfm <- read_rdata_mem(data)
 ```

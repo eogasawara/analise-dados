@@ -656,7 +656,10 @@ Library reticulate enables seamless integration with Python.
 library(reticulate)
 source_python('https://raw.githubusercontent.com/eogasawara/analise-dados/refs/heads/main/examples/module.py')
 x <- add(5, 10)
+x
+```
 
+```{r}
 data <- data.frame(x = c(1:5), y=c(11:15))
 dfm <- read_rdata_mem(data)
 head(dfm)
