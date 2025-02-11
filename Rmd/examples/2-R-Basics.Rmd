@@ -4,7 +4,6 @@
 if(!require(daltoolbox)) { 
   install.packages("daltoolbox")
 }
-#
 ```
 
 #### Package loading
