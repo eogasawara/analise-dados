@@ -948,7 +948,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.001371861 secs
+## Time difference of 0.002266169 secs
 ```
 
 ``` r
@@ -973,7 +973,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 7.618778 secs
+## Time difference of 7.486593 secs
 ```
 
 #### convert the entire column
@@ -992,7 +992,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.2916212 secs
+## Time difference of 0.5133462 secs
 ```
 
 #### Pipelines
@@ -1177,8 +1177,7 @@ Library reticulate enables seamless integration with Python.
 
 ``` r
 library(reticulate)
-source_python(
-  'https://raw.githubusercontent.com/eogasawara/analise-dados/refs/heads/main/python/module.py')
+source_python('https://raw.githubusercontent.com/eogasawara/analise-dados/refs/heads/main/python/module.py')
 x <- add(5, 10)
 x
 ```
