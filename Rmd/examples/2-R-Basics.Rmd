@@ -355,7 +355,7 @@ x <- 1:9
 x
 ```
 
-#### Converting a vector to matrix
+Converting a vector to matrix
 
 ```{r}
 dim(x) <- c(3,3)

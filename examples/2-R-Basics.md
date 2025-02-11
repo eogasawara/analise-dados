@@ -554,7 +554,7 @@ x
 ## [1] 1 2 3 4 5 6 7 8 9
 ```
 
-#### Converting a vector to matrix
+Converting a vector to matrix
 
 
 ``` r
@@ -979,7 +979,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.002635956 secs
+## Time difference of 0.001769066 secs
 ```
 
 ``` r
@@ -1004,7 +1004,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 7.26757 secs
+## Time difference of 7.163375 secs
 ```
 
 #### Converting a data frame to a matrix, processing it, and going back
@@ -1028,7 +1028,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.2795601 secs
+## Time difference of 0.2786911 secs
 ```
 
 #### Pipelines
