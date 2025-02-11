@@ -1,4 +1,6 @@
-#### Installation of R packages
+#### R Package installation and loading
+
+Package checking and instalation
 
 ```{r}
 if(!require(daltoolbox)) { 
@@ -6,7 +8,7 @@ if(!require(daltoolbox)) {
 }
 ```
 
-#### Package loading
+Package loading
 
 ```{r}
 library(daltoolbox)
