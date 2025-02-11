@@ -948,7 +948,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.00262022 secs
+## Time difference of 0.001599073 secs
 ```
 
 ``` r
@@ -973,7 +973,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 7.508858 secs
+## Time difference of 7.506701 secs
 ```
 
 #### convert the entire column
@@ -992,7 +992,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.287662 secs
+## Time difference of 0.2874579 secs
 ```
 
 #### Pipelines
