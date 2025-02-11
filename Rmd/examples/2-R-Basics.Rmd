@@ -14,7 +14,9 @@ Package loading
 library(daltoolbox)
 ```
 
-#### Variable definition and assignment
+#### Variable definitions and evaluation
+
+Variable definition
 
 ```{r}
 weight <- 60
@@ -23,7 +25,7 @@ subject <- "A"
 healthy <- TRUE
 ```
 
-#### Variable evaluation
+Variable evaluation
 
 ```{r}
 weight
@@ -45,7 +47,9 @@ weight <- as.integer(weight)
 is.integer(weight)
 ```
 
-#### Computing the body mass index (BMI) from the weight and height
+#### Formulas and String formatting
+
+Computing the body mass index (BMI) from the weight and height
 
 ```{r}
 #Body mass index (BMI)
@@ -53,14 +57,16 @@ bmi <- weight/height^2
 bmi 
 ```
 
-#### Functions for string manipulation
+Functions for string manipulation
 
 ```{r}
 message <- sprintf("%.1f", bmi)
 print(message)
 ```
 
-#### Vector definition
+#### Vectors
+
+definition
 
 ```{r}
 weight <- c(60, 72, 57, 90, 95, 72) 
@@ -68,7 +74,7 @@ height <- c(1.75, 1.80, 1.65, 1.90, 1.74, 1.91)
 subject <- c("A", "B", "C", "D", "E", "F")
 ```
 
-#### Vector evaluation
+evaluation
 
 ```{r}
 weight
@@ -76,20 +82,24 @@ height
 subject
 ```
 
-#### Creating a vector with a particular size
+#### Establishing the vector size
+
+vector of size 10
 
 ```{r}
 vec <- rep(0, 10)
 vec
 ```
 
-#### Vector length
+vector length
 
 ```{r}
 length(weight)
 ```
 
-#### Vector indexes: from one to the length of the vector
+#### Vector limits
+
+from one to the length of the vector
 
 ```{r}
 weight[1]
@@ -97,6 +107,7 @@ weight[length(weight)]
 ```
 
 #### Iteration: for loop
+
 from one to the length of weight
 
 ```{r}
@@ -113,6 +124,7 @@ bmi
 ```
 
 #### Iteration: while loop
+
 run while i is below or equal to the length of weight
 
 ```{r}
@@ -135,14 +147,16 @@ rm(bmi)
 exists("bmi")
 ```
 
-#### Right way of manipulating vectors: assigning at once
+#### Processing vectors at once
+
 
 ```{r}
 bmi <- weight/height^2 
 bmi 
 ```
 
-#### Creating a function
+#### Creating functions
+
 name <- function(parameters) { body }
 
 ```{r}
@@ -152,7 +166,7 @@ compute_bmi <- function(weight, height) {
 }
 ```
 
-#### Using a function with scalars
+calling it
 
 ```{r}
 
@@ -160,14 +174,15 @@ bmi <- compute_bmi(60, 1.75)
 bmi
 ```
 
-#### Using the same function with vectors
+#### Function processing vectors
 
 ```{r}
 bmi <- compute_bmi(weight, height)
 bmi
 ```
 
-#### Example of a function to compute the average
+#### Example: function to compute the average
+
 (iterating in all elements of the vector)
 
 ```{r}
@@ -188,8 +203,9 @@ avg_bmi <- average(bmi)
 avg_bmi
 ```
 
-#### Example of a function to compute the average
-(manipulating vectors at once)
+#### Example of a function to compute the average (improved version)
+
+manipulating vectors at once
 
 ```{r}
 average <- function(vec) {
@@ -206,7 +222,8 @@ avg_bmi <- average(bmi)
 avg_bmi
 ```
 
-#### Average function using mean function
+#### Example: function using mean function
+
 Major statistical functions are available in R
 
 ```{r}
@@ -222,7 +239,8 @@ avg_bmi <- average(bmi)
 avg_bmi
 ```
 
-#### Working with vectors with NA
+#### Not available (NA)
+
 Operations with NA lead to NA.
 
 ```{r}
@@ -231,7 +249,7 @@ y <- average(x)
 y
 ```
 
-#### addressing NA with na.rm=TRUE
+Addressing NA with na.rm=TRUE
 
 ```{r}
 average <- function(vec) {
@@ -245,7 +263,9 @@ y <- average(x)
 y
 ```
 
-#### Plotting graphics
+#### Plotting basic graphics
+
+defining variables
 
 ```{r}
 weight <- c(60, 72, 57, 90, 95, 72) 
@@ -255,20 +275,14 @@ bmi <- weight/height^2
 
 scatter plots
 
-```{r}
+```{r fig.width = 6}
 plot(height, weight)
 ```
 
 #### Most functions contain many default parameters
 
-```{r}
+```{r fig.width = 6}
 plot(height, weight, pch=2)
-```
-
-#### Default function arguments can be shown with args
-
-```{r}
-args(plot.default)
 ```
 
 #### All functions in R that belongs to packages have help with examples
@@ -279,13 +293,14 @@ args(plot.default)
 
 #### Canvas for plotting is still active until a new plot
 
-```{r}
+```{r fig.width = 6}
 plot(height, weight)
 hh = c(1.65, 1.70, 1.75, 1.80, 1.85, 1.90)
 lines(hh, 22.5 * hh^2)
 ```
 
 #### Factors
+
 Factors are used to handle categorical data.
 
 ```{r}
@@ -294,17 +309,16 @@ fpain <- factor(pain,levels=0:3, ordered=TRUE)
 fpain
 ```
 
-#### Levels provide correspondence between numerical values and categorical labels
+Levels provide correspondence between numerical values and categorical labels
 
 ```{r}
 levels(fpain) <- c("none","mild","medium","severe")
 fpain
 ```
 
-#### Convert height to factor
-Levels: small, medium, high
+#### Convert height to factor with levels: small, medium, high
 
-#### coding setting element by element
+coding setting element by element
 
 ```{r}
 lev <- rep("", length(height))
@@ -317,21 +331,23 @@ for (i in 1:length(height)) {
   else 
     lev[i] <- "tall"
 }
+
 lev <- as.factor(lev)
 lev
 ```
 
-#### coding setting the vector at once
-It uses the cut function.
+#### Using the function cut
 
 ```{r}
 lev <- cut(height, breaks=c(0, 1.5, 1.9, .Machine$double.xmax), ordered=TRUE)
 lev
+
 levels(lev) <- c("short", "medium", "tall")
 lev
 ```
 
 #### Matrix
+
 Matrices can be filled from vectors or data frames. 
 
 ```{r}
@@ -346,7 +362,7 @@ dim(x) <- c(3,3)
 x
 ```
 
-#### Assigning the values of a matrix at once
+#### Scalar multiplication
 
 ```{r}
 y <- 3*x
@@ -368,6 +384,7 @@ x
 ```
 
 #### Lists
+
 Lists are used to work with "objects"
 
 ```{r}
@@ -378,7 +395,7 @@ mybag <- list(a, b, 0, "a")
 mybag
 ```
 
-adding an element into a list
+#### Adding elements into a list
 
 ```{r}
 n <- length(mybag)
@@ -394,23 +411,24 @@ slice
 is.list(slice)
 ```
 
-#### Member reference
-It accesses the element
+#### Lists: member reference
+
+Picking the first element
 
 ```{r}
 h <- mybag[[1]]
 h
 ```
 
-An element can be evaluated. 
-In this case, it is a vector.
+An element can be evaluated. In this case, it is a vector.
 
 ```{r}
 is.vector(h)
 is.list(h)
 ```
 
-#### Naming variables
+#### Creating lists with attributes
+
 They are properties on the list
 
 ```{r}
@@ -440,19 +458,21 @@ data <- data.frame(A=a, B=b)
 head(data)
 ```
 
-#### Adding a column in the data frame 
+#### Adding a column in a data frame 
 
 ```{r}
 data$c <- data$A + data$B
 head(data)
 ```
 
+#### Removing a column of a data frame 
+
 ```{r}
 data$A <- NULL
 head(data)
 ```
 
-####  Reading csv file
+####  Reading a csv file
 There are many functions for reading CSV, Excel, and RData formats.
 
 ```{r}
@@ -469,17 +489,20 @@ head(wine)
 
 ####  saving in binary format 
 
+saving a data frame
+
+
 ```{r}
 save(wine, file="wine.RData")
 ```
 
-####  removing data frame from memory
+removing a data frame from memory
 
 ```{r}
 rm(wine)
 ```
 
-####  load binary format
+loading it
 
 ```{r}
 load("wine.RData")
@@ -516,29 +539,34 @@ data <- data.frame(a = a, b = b)
 head(data[data$a > 7000,])
 ```
 
+####  filtering data frames (rows and columns)
+
 ```{r}
 head(data[data$a > 7000,c(1)])
 ```
 
-#### performance with matrix and data frames
+#### Benchmarking performance of matrix and data frames
 
 ```{r}
 rheight <- rnorm(100000, 1.8, sd=0.2)
 rweight <- rnorm(100000, 72, sd=15)
 ```
 
-#### computing a entire column at once
+#### Computing a column at once in a data frame
 
 ```{r}
 start_time <- Sys.time()
+
 hw <- data.frame(height=rheight, weight=rweight)
 hw$bmi <- hw$weight/hw$height^2
+
 end_time <- Sys.time()
 end_time - start_time
+
 object.size(hw)
 ```
 
-#### processing cell by cell
+#### Computing a column in a data frame cell by cell
 
 ```{r}
 start_time <- Sys.time()
@@ -550,16 +578,21 @@ end_time <- Sys.time()
 end_time - start_time
 ```
 
-#### convert the entire column
+#### Converting a data frame to a matrix, processing it, and going back
 
 ```{r}
 start_time <- Sys.time()
 hw <- data.frame(height=rheight, weight=rweight)
+
 hw <- as.matrix(hw)
+
 hw <- cbind(hw, 0)
 for (i in 1:nrow(hw)) {
   hw[i,3] <- hw[i,2]/hw[i,1]^2
 }
+
+hw <- as.data.frame(hw)
+
 end_time <- Sys.time()
 end_time - start_time
 ```
@@ -587,9 +620,15 @@ flight_data <- read.table(text = "Year Quarter Flights Delays
                      2018 4 15 4",
                      header = TRUE,sep = "")  
 ```
+
+#### Displaying the data frame
+
 ```{r}
 head(flight_data)
 ```
+
+#### Basic Query
+
 
 ```{r}
 library(dplyr)
@@ -602,6 +641,9 @@ result <- flight_data |>
 head(result)
 ```
 
+#### Aggregated query
+
+
 ```{r}
 result <- flight_data |> 
    group_by(Year) |> 
@@ -609,7 +651,9 @@ result <- flight_data |>
 head(result)
 ```
 
-Two tables
+#### Table join
+
+Store table
 
 ```{r}
 stores <- data.frame(
@@ -618,6 +662,8 @@ stores <- data.frame(
 head(stores)
 ```
 
+Division table
+
 ```{r}
 divisions <- data.frame(
   city = c("Rio de Janeiro", "Sao Paulo", "Paris", "New York", "Tokyo"),
@@ -625,7 +671,7 @@ divisions <- data.frame(
 head(divisions)
 ```
 
-#### merge
+#### Merge function
 
 The function $merge$ can be used to join data frames. It can be used to produce inner, left, right, and outer joins. 
 
@@ -633,6 +679,7 @@ The function $merge$ can be used to join data frames. It can be used to produce 
 stdiv <- merge(stores, divisions, by.x="city", by.y="city")
 head(stdiv)
 ```
+#### Aggregating merged data frame
 
 ```{r}
 result <- stdiv |> group_by(country) |> 
@@ -640,7 +687,7 @@ result <- stdiv |> group_by(country) |>
 head(result)
 ```
 
-#### statistical tests: t-test
+#### Statistical analysis
 There are many statistical tests in R.
 One of the most used is the t-test. It checks if the mean of observations is not different from a theoretical value.
 
@@ -654,8 +701,26 @@ bmi <- weight/height^2
 t.test(bmi, mu=22.5)
 ```
 
-#### Integration with Python
-Library reticulate enables seamless integration with Python.
+#### Python + R integration
+
+
+Python code at retic.py
+```text
+import pyreadr
+import pandas
+
+def add(x, y):
+  return x + y
+
+def read_rdata_mem(data):
+  x = data["x"]
+  print(x)
+  y = data["y"]
+  data["z"] = x + y
+  return(data)
+```
+
+Library reticulate enables seamless integration with Python
 ```{r}
 library(reticulate)
 source_python('https://raw.githubusercontent.com/eogasawara/analise-dados/refs/heads/main/python/retic.py')
@@ -664,7 +729,7 @@ x
 ```
 
 
-Handling tables.
+#### Python + R dataset integration
 
 ```{r}
 data <- data.frame(x = c(1:5), y=c(11:15))

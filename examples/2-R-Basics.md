@@ -16,7 +16,9 @@ Package loading
 library(daltoolbox)
 ```
 
-#### Variable definition and assignment
+#### Variable definitions and evaluation
+
+Variable definition
 
 
 ``` r
@@ -26,7 +28,7 @@ subject <- "A"
 healthy <- TRUE
 ```
 
-#### Variable evaluation
+Variable evaluation
 
 
 ``` r
@@ -84,7 +86,9 @@ is.integer(weight)
 ## [1] TRUE
 ```
 
-#### Computing the body mass index (BMI) from the weight and height
+#### Formulas and String formatting
+
+Computing the body mass index (BMI) from the weight and height
 
 
 ``` r
@@ -97,7 +101,7 @@ bmi
 ## [1] 19.59184
 ```
 
-#### Functions for string manipulation
+Functions for string manipulation
 
 
 ``` r
@@ -109,7 +113,9 @@ print(message)
 ## [1] "19.6"
 ```
 
-#### Vector definition
+#### Vectors
+
+definition
 
 
 ``` r
@@ -118,7 +124,7 @@ height <- c(1.75, 1.80, 1.65, 1.90, 1.74, 1.91)
 subject <- c("A", "B", "C", "D", "E", "F")
 ```
 
-#### Vector evaluation
+evaluation
 
 
 ``` r
@@ -145,7 +151,9 @@ subject
 ## [1] "A" "B" "C" "D" "E" "F"
 ```
 
-#### Creating a vector with a particular size
+#### Establishing the vector size
+
+vector of size 10
 
 
 ``` r
@@ -157,7 +165,7 @@ vec
 ##  [1] 0 0 0 0 0 0 0 0 0 0
 ```
 
-#### Vector length
+vector length
 
 
 ``` r
@@ -168,7 +176,9 @@ length(weight)
 ## [1] 6
 ```
 
-#### Vector indexes: from one to the length of the vector
+#### Vector limits
+
+from one to the length of the vector
 
 
 ``` r
@@ -188,6 +198,7 @@ weight[length(weight)]
 ```
 
 #### Iteration: for loop
+
 from one to the length of weight
 
 
@@ -210,6 +221,7 @@ bmi
 ```
 
 #### Iteration: while loop
+
 run while i is below or equal to the length of weight
 
 
@@ -243,7 +255,8 @@ exists("bmi")
 ## [1] TRUE
 ```
 
-#### Right way of manipulating vectors: assigning at once
+#### Processing vectors at once
+
 
 
 ``` r
@@ -255,7 +268,8 @@ bmi
 ## [1] 19.59184 22.22222 20.93664 24.93075 31.37799 19.73630
 ```
 
-#### Creating a function
+#### Creating functions
+
 name <- function(parameters) { body }
 
 
@@ -266,7 +280,7 @@ compute_bmi <- function(weight, height) {
 }
 ```
 
-#### Using a function with scalars
+calling it
 
 
 ``` r
@@ -278,7 +292,7 @@ bmi
 ## [1] 19.59184
 ```
 
-#### Using the same function with vectors
+#### Function processing vectors
 
 
 ``` r
@@ -290,7 +304,8 @@ bmi
 ## [1] 19.59184 22.22222 20.93664 24.93075 31.37799 19.73630
 ```
 
-#### Example of a function to compute the average
+#### Example: function to compute the average
+
 (iterating in all elements of the vector)
 
 
@@ -317,8 +332,9 @@ avg_bmi
 ## [1] 23.13262
 ```
 
-#### Example of a function to compute the average
-(manipulating vectors at once)
+#### Example of a function to compute the average (improved version)
+
+manipulating vectors at once
 
 
 ``` r
@@ -341,7 +357,8 @@ avg_bmi
 ## [1] 23.13262
 ```
 
-#### Average function using mean function
+#### Example: function using mean function
+
 Major statistical functions are available in R
 
 
@@ -363,7 +380,8 @@ avg_bmi
 ## [1] 23.13262
 ```
 
-#### Working with vectors with NA
+#### Not available (NA)
+
 Operations with NA lead to NA.
 
 
@@ -377,7 +395,7 @@ y
 ## [1] NA
 ```
 
-#### addressing NA with na.rm=TRUE
+Addressing NA with na.rm=TRUE
 
 
 ``` r
@@ -397,7 +415,9 @@ y
 ## [1] 11.5
 ```
 
-#### Plotting graphics
+#### Plotting basic graphics
+
+defining variables
 
 
 ``` r
@@ -413,7 +433,7 @@ scatter plots
 plot(height, weight)
 ```
 
-![plot of chunk unnamed-chunk-33](fig/2-R-Basics/unnamed-chunk-33-1.png)
+![plot of chunk unnamed-chunk-118](fig/2-R-Basics/unnamed-chunk-118-1.png)
 
 #### Most functions contain many default parameters
 
@@ -422,23 +442,7 @@ plot(height, weight)
 plot(height, weight, pch=2)
 ```
 
-![plot of chunk unnamed-chunk-34](fig/2-R-Basics/unnamed-chunk-34-1.png)
-
-#### Default function arguments can be shown with args
-
-
-``` r
-args(plot.default)
-```
-
-```
-## function (x, y = NULL, type = "p", xlim = NULL, ylim = NULL, 
-##     log = "", main = NULL, sub = NULL, xlab = NULL, ylab = NULL, 
-##     ann = par("ann"), axes = TRUE, frame.plot = axes, panel.first = NULL, 
-##     panel.last = NULL, asp = NA, xgap.axis = NA, ygap.axis = NA, 
-##     ...) 
-## NULL
-```
+![plot of chunk unnamed-chunk-119](fig/2-R-Basics/unnamed-chunk-119-1.png)
 
 #### All functions in R that belongs to packages have help with examples
 
@@ -456,9 +460,10 @@ hh = c(1.65, 1.70, 1.75, 1.80, 1.85, 1.90)
 lines(hh, 22.5 * hh^2)
 ```
 
-![plot of chunk unnamed-chunk-37](fig/2-R-Basics/unnamed-chunk-37-1.png)
+![plot of chunk unnamed-chunk-121](fig/2-R-Basics/unnamed-chunk-121-1.png)
 
 #### Factors
+
 Factors are used to handle categorical data.
 
 
@@ -473,7 +478,7 @@ fpain
 ## Levels: 0 < 1 < 2 < 3
 ```
 
-#### Levels provide correspondence between numerical values and categorical labels
+Levels provide correspondence between numerical values and categorical labels
 
 
 ``` r
@@ -486,10 +491,9 @@ fpain
 ## Levels: none < mild < medium < severe
 ```
 
-#### Convert height to factor
-Levels: small, medium, high
+#### Convert height to factor with levels: small, medium, high
 
-#### coding setting element by element
+coding setting element by element
 
 
 ``` r
@@ -503,6 +507,7 @@ for (i in 1:length(height)) {
   else 
     lev[i] <- "tall"
 }
+
 lev <- as.factor(lev)
 lev
 ```
@@ -512,8 +517,7 @@ lev
 ## Levels: medium tall
 ```
 
-#### coding setting the vector at once
-It uses the cut function.
+#### Using the function cut
 
 
 ``` r
@@ -537,6 +541,7 @@ lev
 ```
 
 #### Matrix
+
 Matrices can be filled from vectors or data frames. 
 
 
@@ -564,7 +569,7 @@ x
 ## [3,]    3    6    9
 ```
 
-#### Assigning the values of a matrix at once
+#### Scalar multiplication
 
 
 ``` r
@@ -610,6 +615,7 @@ x
 ```
 
 #### Lists
+
 Lists are used to work with "objects"
 
 
@@ -635,7 +641,7 @@ mybag
 ## [1] "a"
 ```
 
-adding an element into a list
+#### Adding elements into a list
 
 
 ``` r
@@ -682,8 +688,9 @@ is.list(slice)
 ## [1] TRUE
 ```
 
-#### Member reference
-It accesses the element
+#### Lists: member reference
+
+Picking the first element
 
 
 ``` r
@@ -695,8 +702,7 @@ h
 ##  [1] 5260 5470 5640 6180 6390 6515 6805 7515 7515 8230 8770
 ```
 
-An element can be evaluated. 
-In this case, it is a vector.
+An element can be evaluated. In this case, it is a vector.
 
 
 ``` r
@@ -715,7 +721,8 @@ is.list(h)
 ## [1] FALSE
 ```
 
-#### Naming variables
+#### Creating lists with attributes
+
 They are properties on the list
 
 
@@ -784,7 +791,7 @@ head(data)
 ## 6 6515 4680
 ```
 
-#### Adding a column in the data frame 
+#### Adding a column in a data frame 
 
 
 ``` r
@@ -802,6 +809,8 @@ head(data)
 ## 6 6515 4680 11195
 ```
 
+#### Removing a column of a data frame 
+
 
 ``` r
 data$A <- NULL
@@ -818,7 +827,7 @@ head(data)
 ## 6 4680 11195
 ```
 
-####  Reading csv file
+####  Reading a csv file
 There are many functions for reading CSV, Excel, and RData formats.
 
 
@@ -835,37 +844,47 @@ head(wine)
 ```
 
 ```
-##   Type Alcohol Malic  Ash Alcalinity Magnesium Phenols Flavanoids Nonflavanoids Proanthocyanins Color  Hue
-## 1    1   13.20  1.78 2.14       11.2       100    2.65       2.76          0.26            1.28  4.38 1.05
-## 2    1   13.16  2.36 2.67       18.6       101    2.80       3.24          0.30            2.81  5.68 1.03
-## 3    1   14.37  1.95 2.50       16.8       113    3.85       3.49          0.24            2.18  7.80 0.86
-## 4    1   13.24  2.59 2.87       21.0       118    2.80       2.69          0.39            1.82  4.32 1.04
-## 5    1   14.20  1.76 2.45       15.2       112    3.27       3.39          0.34            1.97  6.75 1.05
-## 6    1   14.39  1.87 2.45       14.6        96    2.50       2.52          0.30            1.98  5.25 1.02
-##   Dilution Proline
-## 1     3.40    1050
-## 2     3.17    1185
-## 3     3.45    1480
-## 4     2.93     735
-## 5     2.85    1450
-## 6     3.58    1290
+##   Type Alcohol Malic  Ash Alcalinity Magnesium
+## 1    1   13.20  1.78 2.14       11.2       100
+## 2    1   13.16  2.36 2.67       18.6       101
+## 3    1   14.37  1.95 2.50       16.8       113
+## 4    1   13.24  2.59 2.87       21.0       118
+## 5    1   14.20  1.76 2.45       15.2       112
+## 6    1   14.39  1.87 2.45       14.6        96
+##   Phenols Flavanoids Nonflavanoids Proanthocyanins
+## 1    2.65       2.76          0.26            1.28
+## 2    2.80       3.24          0.30            2.81
+## 3    3.85       3.49          0.24            2.18
+## 4    2.80       2.69          0.39            1.82
+## 5    3.27       3.39          0.34            1.97
+## 6    2.50       2.52          0.30            1.98
+##   Color  Hue Dilution Proline
+## 1  4.38 1.05     3.40    1050
+## 2  5.68 1.03     3.17    1185
+## 3  7.80 0.86     3.45    1480
+## 4  4.32 1.04     2.93     735
+## 5  6.75 1.05     2.85    1450
+## 6  5.25 1.02     3.58    1290
 ```
 
 ####  saving in binary format 
+
+saving a data frame
+
 
 
 ``` r
 save(wine, file="wine.RData")
 ```
 
-####  removing data frame from memory
+removing a data frame from memory
 
 
 ``` r
 rm(wine)
 ```
 
-####  load binary format
+loading it
 
 
 ``` r
@@ -874,14 +893,18 @@ head(wine, 3)
 ```
 
 ```
-##   Type Alcohol Malic  Ash Alcalinity Magnesium Phenols Flavanoids Nonflavanoids Proanthocyanins Color  Hue
-## 1    1   13.20  1.78 2.14       11.2       100    2.65       2.76          0.26            1.28  4.38 1.05
-## 2    1   13.16  2.36 2.67       18.6       101    2.80       3.24          0.30            2.81  5.68 1.03
-## 3    1   14.37  1.95 2.50       16.8       113    3.85       3.49          0.24            2.18  7.80 0.86
-##   Dilution Proline
-## 1     3.40    1050
-## 2     3.17    1185
-## 3     3.45    1480
+##   Type Alcohol Malic  Ash Alcalinity Magnesium
+## 1    1   13.20  1.78 2.14       11.2       100
+## 2    1   13.16  2.36 2.67       18.6       101
+## 3    1   14.37  1.95 2.50       16.8       113
+##   Phenols Flavanoids Nonflavanoids Proanthocyanins
+## 1    2.65       2.76          0.26            1.28
+## 2    2.80       3.24          0.30            2.81
+## 3    3.85       3.49          0.24            2.18
+##   Color  Hue Dilution Proline
+## 1  4.38 1.05     3.40    1050
+## 2  5.68 1.03     3.17    1185
+## 3  7.80 0.86     3.45    1480
 ```
 
 ####  exporting data.frame into csv file
@@ -904,7 +927,8 @@ bool
 ```
 
 ```
-##  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE
+##  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE
+##  [9]  TRUE  TRUE  TRUE
 ```
 
 
@@ -934,6 +958,8 @@ head(data[data$a > 7000,])
 ## 11 8770 7335
 ```
 
+####  filtering data frames (rows and columns)
+
 
 ``` r
 head(data[data$a > 7000,c(1)])
@@ -943,7 +969,7 @@ head(data[data$a > 7000,c(1)])
 ## [1] 7515 7515 8230 8770
 ```
 
-#### performance with matrix and data frames
+#### Benchmarking performance of matrix and data frames
 
 
 ``` r
@@ -951,19 +977,21 @@ rheight <- rnorm(100000, 1.8, sd=0.2)
 rweight <- rnorm(100000, 72, sd=15)
 ```
 
-#### computing a entire column at once
+#### Computing a column at once in a data frame
 
 
 ``` r
 start_time <- Sys.time()
+
 hw <- data.frame(height=rheight, weight=rweight)
 hw$bmi <- hw$weight/hw$height^2
+
 end_time <- Sys.time()
 end_time - start_time
 ```
 
 ```
-## Time difference of 0.002118111 secs
+## Time difference of 0.00176692 secs
 ```
 
 ``` r
@@ -974,7 +1002,7 @@ object.size(hw)
 ## 2400984 bytes
 ```
 
-#### processing cell by cell
+#### Computing a column in a data frame cell by cell
 
 
 ``` r
@@ -988,26 +1016,31 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 10.20064 secs
+## Time difference of 10.52711 secs
 ```
 
-#### convert the entire column
+#### Converting a data frame to a matrix, processing it, and going back
 
 
 ``` r
 start_time <- Sys.time()
 hw <- data.frame(height=rheight, weight=rweight)
+
 hw <- as.matrix(hw)
+
 hw <- cbind(hw, 0)
 for (i in 1:nrow(hw)) {
   hw[i,3] <- hw[i,2]/hw[i,1]^2
 }
+
+hw <- as.data.frame(hw)
+
 end_time <- Sys.time()
 end_time - start_time
 ```
 
 ```
-## Time difference of 0.2800748 secs
+## Time difference of 0.2746999 secs
 ```
 
 #### Pipelines
@@ -1035,6 +1068,9 @@ flight_data <- read.table(text = "Year Quarter Flights Delays
                      header = TRUE,sep = "")  
 ```
 
+#### Displaying the data frame
+
+
 ``` r
 head(flight_data)
 ```
@@ -1048,6 +1084,9 @@ head(flight_data)
 ## 5 2017       1      10      4
 ## 6 2017       2       9      3
 ```
+
+#### Basic Query
+
 
 
 ``` r
@@ -1068,6 +1107,9 @@ head(result)
 ## 2 2017       4      25
 ```
 
+#### Aggregated query
+
+
 
 ``` r
 result <- flight_data |> 
@@ -1085,7 +1127,9 @@ head(result)
 ## 3  2018  13.5 1.29
 ```
 
-Two tables
+#### Table join
+
+Store table
 
 
 ``` r
@@ -1104,6 +1148,8 @@ head(stores)
 ## 5          Tokyo    18
 ```
 
+Division table
+
 
 ``` r
 divisions <- data.frame(
@@ -1121,7 +1167,7 @@ head(divisions)
 ## 5          Tokyo   Japan
 ```
 
-#### merge
+#### Merge function
 
 The function $merge$ can be used to join data frames. It can be used to produce inner, left, right, and outer joins. 
 
@@ -1139,6 +1185,7 @@ head(stdiv)
 ## 4      Sao Paulo    12  Brazil
 ## 5          Tokyo    18   Japan
 ```
+#### Aggregating merged data frame
 
 
 ``` r
@@ -1157,7 +1204,7 @@ head(result)
 ## 4 US          1     25
 ```
 
-#### statistical tests: t-test
+#### Statistical analysis
 There are many statistical tests in R.
 One of the most used is the t-test. It checks if the mean of observations is not different from a theoretical value.
 
@@ -1187,8 +1234,26 @@ t.test(bmi, mu=22.5)
 ##  23.13262
 ```
 
-#### Integration with Python
-Library reticulate enables seamless integration with Python.
+#### Python + R integration
+
+
+Python code at retic.py
+```text
+import pyreadr
+import pandas
+
+def add(x, y):
+  return x + y
+
+def read_rdata_mem(data):
+  x = data["x"]
+  print(x)
+  y = data["y"]
+  data["z"] = x + y
+  return(data)
+```
+
+Library reticulate enables seamless integration with Python
 
 ``` r
 library(reticulate)
@@ -1202,7 +1267,7 @@ x
 ```
 
 
-Handling tables.
+#### Python + R dataset integration
 
 
 ``` r
