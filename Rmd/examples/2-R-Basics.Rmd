@@ -1,13 +1,16 @@
 #### Installation of R packages
 
 ```{r}
-#install.packages("ISwR")
+if(!require(daltoolbox)) { 
+  install.packages("daltoolbox")
+}
+#
 ```
 
 #### Package loading
 
 ```{r}
-library(ISwR)
+library(daltoolbox)
 ```
 
 #### Variable definition and assignment
