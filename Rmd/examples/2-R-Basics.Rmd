@@ -605,7 +605,7 @@ result <- flight_data |>
 head(result)
 ```
 
-Two tables example
+Two tables
 
 ```{r}
 stores <- data.frame(
@@ -650,3 +650,14 @@ bmi <- weight/height^2
 t.test(bmi, mu=22.5)
 ```
 
+#### Integration with Python
+Library reticulate enables seamless integration with Python.
+```{r}
+library(reticulate)
+source_python('https://raw.githubusercontent.com/eogasawara/analise-dados/refs/heads/main/examples/module.py')
+x <- add(5, 10)
+
+data <- data.frame(x = c(1:5), y=c(11:15))
+dfm <- read_rdata_mem(data)
+head(dfm)
+```
