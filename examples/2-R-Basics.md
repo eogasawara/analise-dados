@@ -252,7 +252,7 @@ exists("bmi")
 ```
 
 ```
-## [1] TRUE
+## [1] FALSE
 ```
 
 #### Processing vectors at once
@@ -433,7 +433,7 @@ scatter plots
 plot(height, weight)
 ```
 
-![plot of chunk unnamed-chunk-118](fig/2-R-Basics/unnamed-chunk-118-1.png)
+![plot of chunk unnamed-chunk-33](fig/2-R-Basics/unnamed-chunk-33-1.png)
 
 #### Most functions contain many default parameters
 
@@ -442,7 +442,7 @@ plot(height, weight)
 plot(height, weight, pch=2)
 ```
 
-![plot of chunk unnamed-chunk-119](fig/2-R-Basics/unnamed-chunk-119-1.png)
+![plot of chunk unnamed-chunk-34](fig/2-R-Basics/unnamed-chunk-34-1.png)
 
 #### All functions in R that belongs to packages have help with examples
 
@@ -460,7 +460,7 @@ hh = c(1.65, 1.70, 1.75, 1.80, 1.85, 1.90)
 lines(hh, 22.5 * hh^2)
 ```
 
-![plot of chunk unnamed-chunk-121](fig/2-R-Basics/unnamed-chunk-121-1.png)
+![plot of chunk unnamed-chunk-36](fig/2-R-Basics/unnamed-chunk-36-1.png)
 
 #### Factors
 
@@ -844,27 +844,20 @@ head(wine)
 ```
 
 ```
-##   Type Alcohol Malic  Ash Alcalinity Magnesium
-## 1    1   13.20  1.78 2.14       11.2       100
-## 2    1   13.16  2.36 2.67       18.6       101
-## 3    1   14.37  1.95 2.50       16.8       113
-## 4    1   13.24  2.59 2.87       21.0       118
-## 5    1   14.20  1.76 2.45       15.2       112
-## 6    1   14.39  1.87 2.45       14.6        96
-##   Phenols Flavanoids Nonflavanoids Proanthocyanins
-## 1    2.65       2.76          0.26            1.28
-## 2    2.80       3.24          0.30            2.81
-## 3    3.85       3.49          0.24            2.18
-## 4    2.80       2.69          0.39            1.82
-## 5    3.27       3.39          0.34            1.97
-## 6    2.50       2.52          0.30            1.98
-##   Color  Hue Dilution Proline
-## 1  4.38 1.05     3.40    1050
-## 2  5.68 1.03     3.17    1185
-## 3  7.80 0.86     3.45    1480
-## 4  4.32 1.04     2.93     735
-## 5  6.75 1.05     2.85    1450
-## 6  5.25 1.02     3.58    1290
+##   Type Alcohol Malic  Ash Alcalinity Magnesium Phenols Flavanoids Nonflavanoids Proanthocyanins Color  Hue
+## 1    1   13.20  1.78 2.14       11.2       100    2.65       2.76          0.26            1.28  4.38 1.05
+## 2    1   13.16  2.36 2.67       18.6       101    2.80       3.24          0.30            2.81  5.68 1.03
+## 3    1   14.37  1.95 2.50       16.8       113    3.85       3.49          0.24            2.18  7.80 0.86
+## 4    1   13.24  2.59 2.87       21.0       118    2.80       2.69          0.39            1.82  4.32 1.04
+## 5    1   14.20  1.76 2.45       15.2       112    3.27       3.39          0.34            1.97  6.75 1.05
+## 6    1   14.39  1.87 2.45       14.6        96    2.50       2.52          0.30            1.98  5.25 1.02
+##   Dilution Proline
+## 1     3.40    1050
+## 2     3.17    1185
+## 3     3.45    1480
+## 4     2.93     735
+## 5     2.85    1450
+## 6     3.58    1290
 ```
 
 ####  saving in binary format 
@@ -893,18 +886,14 @@ head(wine, 3)
 ```
 
 ```
-##   Type Alcohol Malic  Ash Alcalinity Magnesium
-## 1    1   13.20  1.78 2.14       11.2       100
-## 2    1   13.16  2.36 2.67       18.6       101
-## 3    1   14.37  1.95 2.50       16.8       113
-##   Phenols Flavanoids Nonflavanoids Proanthocyanins
-## 1    2.65       2.76          0.26            1.28
-## 2    2.80       3.24          0.30            2.81
-## 3    3.85       3.49          0.24            2.18
-##   Color  Hue Dilution Proline
-## 1  4.38 1.05     3.40    1050
-## 2  5.68 1.03     3.17    1185
-## 3  7.80 0.86     3.45    1480
+##   Type Alcohol Malic  Ash Alcalinity Magnesium Phenols Flavanoids Nonflavanoids Proanthocyanins Color  Hue
+## 1    1   13.20  1.78 2.14       11.2       100    2.65       2.76          0.26            1.28  4.38 1.05
+## 2    1   13.16  2.36 2.67       18.6       101    2.80       3.24          0.30            2.81  5.68 1.03
+## 3    1   14.37  1.95 2.50       16.8       113    3.85       3.49          0.24            2.18  7.80 0.86
+##   Dilution Proline
+## 1     3.40    1050
+## 2     3.17    1185
+## 3     3.45    1480
 ```
 
 ####  exporting data.frame into csv file
@@ -927,8 +916,7 @@ bool
 ```
 
 ```
-##  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE
-##  [9]  TRUE  TRUE  TRUE
+##  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE
 ```
 
 
@@ -991,7 +979,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.00176692 secs
+## Time difference of 0.002635956 secs
 ```
 
 ``` r
@@ -1016,7 +1004,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 10.52711 secs
+## Time difference of 7.26757 secs
 ```
 
 #### Converting a data frame to a matrix, processing it, and going back
@@ -1040,7 +1028,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.2746999 secs
+## Time difference of 0.2795601 secs
 ```
 
 #### Pipelines

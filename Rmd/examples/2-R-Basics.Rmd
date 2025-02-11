@@ -275,13 +275,13 @@ bmi <- weight/height^2
 
 scatter plots
 
-```{r fig.width = 6}
+```{r fig.width=6, fig.height=4.5}
 plot(height, weight)
 ```
 
 #### Most functions contain many default parameters
 
-```{r fig.width = 6}
+```{r fig.width=6, fig.height=4.5}
 plot(height, weight, pch=2)
 ```
 
@@ -293,7 +293,7 @@ plot(height, weight, pch=2)
 
 #### Canvas for plotting is still active until a new plot
 
-```{r fig.width = 6}
+```{r fig.width=6, fig.height=4.5}
 plot(height, weight)
 hh = c(1.65, 1.70, 1.75, 1.80, 1.85, 1.90)
 lines(hh, 22.5 * hh^2)
