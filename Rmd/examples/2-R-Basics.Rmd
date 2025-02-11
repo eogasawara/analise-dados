@@ -654,10 +654,13 @@ t.test(bmi, mu=22.5)
 Library reticulate enables seamless integration with Python.
 ```{r}
 library(reticulate)
-source_python('https://raw.githubusercontent.com/eogasawara/analise-dados/refs/heads/main/python/module.py')
+source_python('https://raw.githubusercontent.com/eogasawara/analise-dados/refs/heads/main/python/retic.py')
 x <- add(5, 10)
 x
 ```
+
+
+Handling tables.
 
 ```{r}
 data <- data.frame(x = c(1:5), y=c(11:15))
