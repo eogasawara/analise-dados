@@ -2,14 +2,17 @@
 
 
 ``` r
-#install.packages("ISwR")
+if(!require(daltoolbox)) { 
+  install.packages("daltoolbox")
+}
+#
 ```
 
 #### Package loading
 
 
 ``` r
-library(ISwR)
+library(daltoolbox)
 ```
 
 #### Variable definition and assignment
@@ -236,7 +239,7 @@ exists("bmi")
 ```
 
 ```
-## [1] FALSE
+## [1] TRUE
 ```
 
 #### Right way of manipulating vectors: assigning at once
@@ -409,7 +412,7 @@ scatter plots
 plot(height, weight)
 ```
 
-![plot of chunk unnamed-chunk-33](fig/2-R-Basics/unnamed-chunk-33-1.png)
+![plot of chunk unnamed-chunk-116](fig/2-R-Basics/unnamed-chunk-116-1.png)
 
 #### Most functions contain many default parameters
 
@@ -418,7 +421,7 @@ plot(height, weight)
 plot(height, weight, pch=2)
 ```
 
-![plot of chunk unnamed-chunk-34](fig/2-R-Basics/unnamed-chunk-34-1.png)
+![plot of chunk unnamed-chunk-117](fig/2-R-Basics/unnamed-chunk-117-1.png)
 
 #### Default function arguments can be shown with args
 
@@ -452,7 +455,7 @@ hh = c(1.65, 1.70, 1.75, 1.80, 1.85, 1.90)
 lines(hh, 22.5 * hh^2)
 ```
 
-![plot of chunk unnamed-chunk-37](fig/2-R-Basics/unnamed-chunk-37-1.png)
+![plot of chunk unnamed-chunk-120](fig/2-R-Basics/unnamed-chunk-120-1.png)
 
 #### Factors
 Factors are used to handle categorical data.
@@ -948,7 +951,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.005981922 secs
+## Time difference of 0.001734972 secs
 ```
 
 ``` r
@@ -973,7 +976,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 7.553976 secs
+## Time difference of 11.06925 secs
 ```
 
 #### convert the entire column
@@ -992,7 +995,7 @@ end_time - start_time
 ```
 
 ```
-## Time difference of 0.3026252 secs
+## Time difference of 0.4815528 secs
 ```
 
 #### Pipelines
