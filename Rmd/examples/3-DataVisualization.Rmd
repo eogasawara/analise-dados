@@ -4,21 +4,23 @@
 # The easiest way to get ggplot2 is to install the whole tidyverse
 #install.packages("tidyverse")
 #install.packages("ggplot2")
-
-# It is also important to choose the right colors
-#install.packages("RColorBrewer")
 ```
 
 
 #### ggplot easy encapsulation through daltoolbox
-Data visualization
-
 
 ```{r}
 library(daltoolbox)
 library(ggplot2)
+```
+
+#### Choosing colors
+
+```{r}
+#install.packages("RColorBrewer")
 library(RColorBrewer)
 ```
+
 
 #### Iris datasets
 The exploratory analysis is done using iris dataset.
