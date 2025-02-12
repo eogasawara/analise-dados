@@ -170,12 +170,12 @@ head(example)
 
 ```
 ##   exponential  uniform   normal
-## 1   0.3301584 2.602274 3.606884
-## 2   1.8997733 2.631121 5.785216
-## 3   0.2065533 3.164524 3.948160
-## 4   3.5879583 2.909608 6.626982
-## 5   3.0470235 2.758984 3.367393
-## 6   0.1870096 3.055619 3.345107
+## 1   0.7602626 3.167906 5.248852
+## 2   0.8937471 2.817325 4.628489
+## 3   0.3923588 2.951471 5.144646
+## 4   0.3631717 2.811029 6.366776
+## 5   1.2369073 3.201286 4.894996
+## 6   1.5141799 2.612590 6.302659
 ```
 
 
@@ -224,3 +224,43 @@ grid.arrange(grfe, grfu, grfn, ncol=3)
 ```
 
 ![plot of chunk unnamed-chunk-16](fig/3-DataVisualization/unnamed-chunk-16-1.png)
+
+``` r
+#### Density plot
+```
+
+``` r
+{
+library(dplyr)
+data <- example |> select(normal)
+#head(data)
+grf <- plot_density(data, label_x = "normal", color=colors[1]) + font
+plot(grf) 
+}
+```
+
+```
+## Using  as id variables
+```
+
+![plot of chunk unnamed-chunk-17](fig/3-DataVisualization/unnamed-chunk-17-1.png)
+
+``` r
+#### Box plot
+```
+
+``` r
+{
+library(dplyr)
+data <- example |> select(normal)
+#head(data)
+grf <- plot_boxplot(data, label_x = "normal", color=colors[1]) + font
+plot(grf) 
+}
+```
+
+```
+## Using  as id variables
+```
+
+![plot of chunk unnamed-chunk-18](fig/3-DataVisualization/unnamed-chunk-18-1.png)
