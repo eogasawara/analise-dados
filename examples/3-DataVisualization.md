@@ -170,12 +170,12 @@ head(example)
 
 ```
 ##   exponential  uniform   normal
-## 1   3.1545452 3.433803 4.716025
-## 2   0.1710278 3.324831 5.606031
-## 3   0.1940991 2.788283 3.988503
-## 4   0.1896065 2.984705 3.980559
-## 5   0.4751447 2.910165 5.213665
-## 6   0.8023428 2.733757 6.696009
+## 1   0.3301584 2.602274 3.606884
+## 2   1.8997733 2.631121 5.785216
+## 3   0.2065533 3.164524 3.948160
+## 4   3.5879583 2.909608 6.626982
+## 5   3.0470235 2.758984 3.367393
+## 6   0.1870096 3.055619 3.345107
 ```
 
 
@@ -208,22 +208,19 @@ plot(grf)
 
 
 ``` r
+{
 library(gridExtra)  
-suppressWarnings({
 grfe <- plot_hist(example |> select(exponential), label_x = "exponential", color=colors[1]) + font
 grfu <- plot_hist(example |> select(uniform), label_x = "uniform", color=colors[1]) + font 
 grfn <- plot_hist(example |> select(normal), label_x = "normal", color=colors[1]) + font
-})
-```
-
-```
-## Using  as id variables
-## Using  as id variables
-## Using  as id variables
-```
-
-``` r
 grid.arrange(grfe, grfu, grfn, ncol=3)
+}
+```
+
+```
+## Using  as id variables
+## Using  as id variables
+## Using  as id variables
 ```
 
 ![plot of chunk unnamed-chunk-16](fig/3-DataVisualization/unnamed-chunk-16-1.png)
