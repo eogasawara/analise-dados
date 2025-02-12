@@ -75,7 +75,7 @@ plot(grf)
 #### Pie plot
 
 
-```{r fig.width=6, fig.height=3.5}
+```{r fig.width=6, fig.height=4.5}
 library(dplyr)
 data <- iris |> group_by(Species) |> summarize(Sepal.Length=mean(Sepal.Length))
 #head(data)
