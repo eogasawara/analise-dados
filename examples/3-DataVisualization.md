@@ -158,3 +158,49 @@ plot(grf)
 
 ![plot of chunk unnamed-chunk-12](fig/3-DataVisualization/unnamed-chunk-12-1.png)
 
+#### Data distribution example
+
+
+
+``` r
+example <- data.frame(exponencial = rexp(10000, rate = 1),
+                      uniform = runif(10000, min=2.5, max = 3.5),
+                      normal = rnorm(10000, mean = 5))
+head(example)
+```
+
+```
+##   exponencial  uniform   normal
+## 1  0.65926515 2.577149 3.380406
+## 2  0.96877025 2.937234 5.967816
+## 3  0.05059315 2.758117 3.307216
+## 4  0.12027304 2.565390 4.780961
+## 5  5.31988220 2.641392 4.713785
+## 6  2.17472525 2.591428 3.539582
+```
+
+
+
+``` r
+library(dplyr)
+data <- example |> select(exponential)
+```
+
+```
+## Error in `select()`:
+## ! Can't select columns that don't exist.
+## ✖ Column `exponential` doesn't exist.
+```
+
+``` r
+#head(data)
+grf <- plot_hist(data, label_x = "exponential", color=colors[1]) + font
+```
+
+```
+## Using Species as id variables
+```
+
+```
+## Error in hist.default(series$value, plot = FALSE): número inválido de 'breaks'
+```
