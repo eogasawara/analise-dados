@@ -11,7 +11,7 @@
 ```
 
 
-# Data visualization
+#### ggplot easy encapsulation through daltoolbox
 Data visualization
 
 
@@ -22,7 +22,7 @@ library(ggplot2)
 library(RColorBrewer)
 ```
 
-### Iris datasets
+#### Iris datasets
 The exploratory analysis is done using iris dataset.
 
 
