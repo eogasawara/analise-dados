@@ -16,12 +16,13 @@ library(daltoolbox)
 library(ggplot2)
 ```
 
-#### Choosing colors
+#### Color Brewer R Package
 
 
 ``` r
 #install.packages("RColorBrewer")
 library(RColorBrewer)
+colors <- brewer.pal(4, 'Set1')
 ```
 
 
