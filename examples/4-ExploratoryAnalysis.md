@@ -1,22 +1,16 @@
-# Exploratory analysis
+#### Exploratory analysis
 A brief exploratory analysis example. 
 
-### Iris datasets
-The exploratory analysis is done using iris dataset.
-
+#### Basic configuration for exploratory analysis
 
 
 ``` r
-#loading DAL Toolbox
+# basic packages
 library(daltoolbox) 
-```
-
-
-
-``` r
 library(RColorBrewer)
 library(ggplot2)
 
+# choosing colors
 colors <- brewer.pal(4, 'Set1')
 
 # setting the font size for all charts
@@ -25,29 +19,93 @@ font <- theme(text = element_text(size=16))
 
 
 ``` r
+# additional packages
+
 library(dplyr)
 library(reshape)
-library(corrplot)
-library(WVPlots)
-library(GGally)
-library(aplpack)
 ```
 
 ```
-## Error in library(aplpack): não há nenhum pacote chamado 'aplpack'
+## 
+## Anexando pacote: 'reshape'
+```
+
+```
+## O seguinte objeto é mascarado por 'package:lubridate':
+## 
+##     stamp
+```
+
+```
+## Os seguintes objetos são mascarados por 'package:tidyr':
+## 
+##     expand, smiths
+```
+
+```
+## O seguinte objeto é mascarado por 'package:dplyr':
+## 
+##     rename
 ```
 
 ``` r
+library(corrplot)
+```
+
+```
+## corrplot 0.95 loaded
+```
+
+``` r
+library(WVPlots)
+```
+
+```
+## Carregando pacotes exigidos: wrapr
+```
+
+```
+## 
+## Anexando pacote: 'wrapr'
+```
+
+```
+## Os seguintes objetos são mascarados por 'package:tidyr':
+## 
+##     pack, unpack
+```
+
+```
+## O seguinte objeto é mascarado por 'package:tibble':
+## 
+##     view
+```
+
+```
+## O seguinte objeto é mascarado por 'package:dplyr':
+## 
+##     coalesce
+```
+
+``` r
+library(GGally)
+```
+
+```
+## Registered S3 method overwritten by 'GGally':
+##   method from   
+##   +.gg   ggplot2
+```
+
+``` r
+library(aplpack)
+
 source("https://raw.githubusercontent.com/eogasawara/datamining/refs/heads/main/4-ExploratoryAnalysis.R")
 ```
 
-## Part 1
-
-
-``` r
-library(MASS)
-data(iris)
-```
+#### Iris datasets
+The exploratory analysis is done using iris dataset.
+There are three basic species
 
 
 ``` r
@@ -64,7 +122,7 @@ head(iris[c(1:3,51:53,101:103),])
 ## 53          6.9         3.1          4.9         1.5 versicolor
 ```
 
-### Data Summary
+#### Data Summary
 A preliminary analysis using the $Sepal.Length$ attribute. 
 
 This should be done for all attributes. 
@@ -90,13 +148,11 @@ print(sprintf("IQR=%.1f", IQR))
 ## [1] "IQR=1.3"
 ```
 
-## Part 2
-
-### Histogram analysis
+#### Histogram analysis
 
 
 ``` r
-grf <- plot_hist(iris %>% dplyr::select(Sepal.Length), 
+grf <- plot_hist(iris |> dplyr::select(Sepal.Length), 
           label_x = "Sepal Length", color=colors[1]) + font
 ```
 
@@ -108,100 +164,68 @@ grf <- plot_hist(iris %>% dplyr::select(Sepal.Length),
 plot(grf)
 ```
 
-![plot of chunk unnamed-chunk-8](fig/4-ExploratoryAnalysis/unnamed-chunk-8-1.png)
+![plot of chunk unnamed-chunk-6](fig/4-ExploratoryAnalysis/unnamed-chunk-6-1.png)
 
 Grouping graphics
 
 
 ``` r
-grf1 <- plot_hist(iris %>% dplyr::select(Sepal.Length), 
+{
+grf1 <- plot_hist(iris |> dplyr::select(Sepal.Length), 
                   label_x = "Sepal.Length", color=colors[1]) + font
-```
-
-```
-## Using  as id variables
-```
-
-``` r
-grf2 <- plot_hist(iris %>% dplyr::select(Sepal.Width), 
+grf2 <- plot_hist(iris |> dplyr::select(Sepal.Width), 
                   label_x = "Sepal.Width", color=colors[1]) + font  
-```
-
-```
-## Using  as id variables
-```
-
-``` r
-grf3 <- plot_hist(iris %>% dplyr::select(Petal.Length), 
+grf3 <- plot_hist(iris |> dplyr::select(Petal.Length), 
                   label_x = "Petal.Length", color=colors[1]) + font 
+grf4 <- plot_hist(iris |> dplyr::select(Petal.Width), 
+                  label_x = "Petal.Width", color=colors[1]) + font
+}
 ```
 
 ```
 ## Using  as id variables
-```
-
-``` r
-grf4 <- plot_hist(iris %>% dplyr::select(Petal.Width), 
-                  label_x = "Petal.Width", color=colors[1]) + font
-```
-
-```
+## Using  as id variables
+## Using  as id variables
 ## Using  as id variables
 ```
 
 ``` r
 library(gridExtra) 
-grid.arrange(grf1, grf2, grf3, grf4, ncol=4)
+grid.arrange(grf1, grf2, grf3, grf4, ncol=2)
 ```
 
-![plot of chunk unnamed-chunk-9](fig/4-ExploratoryAnalysis/unnamed-chunk-9-1.png)
+![plot of chunk unnamed-chunk-7](fig/4-ExploratoryAnalysis/unnamed-chunk-7-1.png)
 
-### Density distribution
+#### Density distribution
 
 
 ``` r
-grf1 <- plot_density(iris %>% dplyr::select(Sepal.Length), 
+{
+grf1 <- plot_density(iris |> dplyr::select(Sepal.Length), 
                   label_x = "Sepal.Length", color=colors[1]) + font
-```
-
-```
-## Using  as id variables
-```
-
-``` r
-grf2 <- plot_density(iris %>% dplyr::select(Sepal.Width), 
+grf2 <- plot_density(iris |> dplyr::select(Sepal.Width), 
                   label_x = "Sepal.Width", color=colors[1]) + font  
-```
-
-```
-## Using  as id variables
-```
-
-``` r
-grf3 <- plot_density(iris %>% dplyr::select(Petal.Length), 
+grf3 <- plot_density(iris |> dplyr::select(Petal.Length), 
                   label_x = "Petal.Length", color=colors[1]) + font 
-```
-
-```
-## Using  as id variables
-```
-
-``` r
-grf4 <- plot_density(iris %>% dplyr::select(Petal.Width), 
+grf4 <- plot_density(iris |> dplyr::select(Petal.Width), 
                   label_x = "Petal.Width", color=colors[1]) + font
+}
 ```
 
 ```
 ## Using  as id variables
+## Using  as id variables
+## Using  as id variables
+## Using  as id variables
 ```
 
 ``` r
-grid.arrange(grf1, grf2, grf3, grf4, ncol=4)
+grid.arrange(grf1, grf2, grf3, grf4, ncol=2)
 ```
 
-![plot of chunk unnamed-chunk-10](fig/4-ExploratoryAnalysis/unnamed-chunk-10-1.png)
+![plot of chunk unnamed-chunk-8](fig/4-ExploratoryAnalysis/unnamed-chunk-8-1.png)
 
-### Box-plot analysis
+#### Box-plot analysis
 
 
 ``` r
@@ -216,49 +240,51 @@ grf <- plot_boxplot(iris, colors=colors[1]) + font
 plot(grf)
 ```
 
-![plot of chunk unnamed-chunk-11](fig/4-ExploratoryAnalysis/unnamed-chunk-11-1.png)
+![plot of chunk unnamed-chunk-9](fig/4-ExploratoryAnalysis/unnamed-chunk-9-1.png)
 
-### Consider the classification problem targeting to predict the species
+#### Consider the classification problem targeting to predict the species
 
-### Density distribution colored by the classifier
+Until previous analysis, the goal of classification problem was not explored. 
+
+#### Density distribution colored by the classifier
 
 
 ``` r
-grfA <- plot_density_class(iris %>% dplyr::select(Species, Sepal.Length), 
+grfA <- plot_density_class(iris |> dplyr::select(Species, Sepal.Length), 
             class_label="Species", label_x = "Sepal.Length", color=colors[c(1:3)]) + font
-grfB <- plot_density_class(iris %>% dplyr::select(Species, Sepal.Width), 
+grfB <- plot_density_class(iris |> dplyr::select(Species, Sepal.Width), 
             class_label="Species", label_x = "Sepal.Width", color=colors[c(1:3)]) + font
-grfC <- plot_density_class(iris %>% dplyr::select(Species, Petal.Length), 
+grfC <- plot_density_class(iris |> dplyr::select(Species, Petal.Length), 
             class_label="Species", label_x = "Petal.Length", color=colors[c(1:3)]) + font
-grfD <- plot_density_class(iris %>% dplyr::select(Species, Petal.Width), 
+grfD <- plot_density_class(iris |> dplyr::select(Species, Petal.Width), 
             class_label="Species", label_x = "Petal.Width", color=colors[c(1:3)]) + font
 
 grid.arrange(grfA, grfB, grfC, grfD, ncol=2, nrow=2)
 ```
 
-![plot of chunk unnamed-chunk-12](fig/4-ExploratoryAnalysis/unnamed-chunk-12-1.png)
+![plot of chunk unnamed-chunk-10](fig/4-ExploratoryAnalysis/unnamed-chunk-10-1.png)
 
-### Box-plot analysis grouped by the classifier
+#### Box-plot analysis grouped by the classifier
 
 
 ``` r
-grfA <- plot_boxplot_class(iris %>% dplyr::select(Species, Sepal.Length), 
+grfA <- plot_boxplot_class(iris |> dplyr::select(Species, Sepal.Length), 
           class_label="Species", label_x = "Sepal.Length", color=colors[c(1:3)]) + font
-grfB <- plot_boxplot_class(iris %>% dplyr::select(Species, Sepal.Width), 
+grfB <- plot_boxplot_class(iris |> dplyr::select(Species, Sepal.Width), 
           class_label="Species", label_x = "Sepal.Width", color=colors[c(1:3)]) + font
-grfC <- plot_boxplot_class(iris %>% dplyr::select(Species, Petal.Length), 
+grfC <- plot_boxplot_class(iris |> dplyr::select(Species, Petal.Length), 
           class_label="Species", label_x = "Petal.Length", color=colors[c(1:3)]) + font
-grfD <- plot_boxplot_class(iris %>% dplyr::select(Species, Petal.Width), 
+grfD <- plot_boxplot_class(iris |> dplyr::select(Species, Petal.Width), 
           class_label="Species", label_x = "Petal.Width", color=colors[c(1:3)]) + font
 
 grid.arrange(grfA, grfB, grfC, grfD, ncol=2, nrow=2)
 ```
 
-![plot of chunk unnamed-chunk-13](fig/4-ExploratoryAnalysis/unnamed-chunk-13-1.png)
+![plot of chunk unnamed-chunk-11](fig/4-ExploratoryAnalysis/unnamed-chunk-11-1.png)
 
-## Part 3
+#### Part 3
 
-### Scatter plot
+#### Scatter plot
 
 
 ``` r
@@ -291,17 +317,17 @@ grf <- plot_scatter(iris |> dplyr::select(x = Sepal.Length, value = Sepal.Width,
 plot(grf)
 ```
 
-![plot of chunk unnamed-chunk-15](fig/4-ExploratoryAnalysis/unnamed-chunk-15-1.png)
+![plot of chunk unnamed-chunk-13](fig/4-ExploratoryAnalysis/unnamed-chunk-13-1.png)
 
-### Correlation matrix
+#### Correlation matrix
 
 
 ``` r
-grf <- plot_correlation(iris %>% 
+grf <- plot_correlation(iris |> 
                  dplyr::select(Sepal.Width, Sepal.Length, Petal.Width, Petal.Length))
 ```
 
-![plot of chunk unnamed-chunk-16](fig/4-ExploratoryAnalysis/unnamed-chunk-16-1.png)
+![plot of chunk unnamed-chunk-14](fig/4-ExploratoryAnalysis/unnamed-chunk-14-1.png)
 
 ``` r
 grf
@@ -333,7 +359,7 @@ grf
 ## [1] "upper"
 ```
 
-## Matrix dispersion
+#### Matrix dispersion
 
 
 ``` r
@@ -343,9 +369,9 @@ grf <- plot_pair(data=iris, cnames=colnames(iris)[1:4],
 plot(grf)
 ```
 
-![plot of chunk unnamed-chunk-17](fig/4-ExploratoryAnalysis/unnamed-chunk-17-1.png)
+![plot of chunk unnamed-chunk-15](fig/4-ExploratoryAnalysis/unnamed-chunk-15-1.png)
 
-## Matrix dispersion by the classifier
+#### Matrix dispersion by the classifier
 
 
 ``` r
@@ -354,9 +380,9 @@ grf <- plot_pair(data=iris, cnames=colnames(iris)[1:4],
 plot(grf)
 ```
 
-![plot of chunk unnamed-chunk-18](fig/4-ExploratoryAnalysis/unnamed-chunk-18-1.png)
+![plot of chunk unnamed-chunk-16](fig/4-ExploratoryAnalysis/unnamed-chunk-16-1.png)
 
-## Advanced matrix dispersion
+#### Advanced matrix dispersion
 
 
 ``` r
@@ -366,27 +392,27 @@ grf
 ```
 
 ```
-## plot: [1, 1] [=====>----------------------------------------------------------------------------------------------] 6% est: 0s
-## plot: [1, 2] [===========>----------------------------------------------------------------------------------------] 12% est: 0s
-## plot: [1, 3] [==================>---------------------------------------------------------------------------------] 19% est: 1s
-## plot: [1, 4] [========================>---------------------------------------------------------------------------] 25% est: 1s
-## plot: [2, 1] [==============================>---------------------------------------------------------------------] 31% est: 1s
-## plot: [2, 2] [=====================================>--------------------------------------------------------------] 38% est: 1s
-## plot: [2, 3] [===========================================>--------------------------------------------------------] 44% est: 1s
-## plot: [2, 4] [=================================================>--------------------------------------------------] 50% est: 1s
-## plot: [3, 1] [=======================================================>--------------------------------------------] 56% est: 0s
-## plot: [3, 2] [=============================================================>--------------------------------------] 62% est: 0s
-## plot: [3, 3] [====================================================================>-------------------------------] 69% est: 0s
-## plot: [3, 4] [==========================================================================>-------------------------] 75% est: 0s
-## plot: [4, 1] [================================================================================>-------------------] 81% est: 0s
-## plot: [4, 2] [=======================================================================================>------------] 88% est: 0s
-## plot: [4, 3] [=============================================================================================>------] 94% est: 0s
-## plot: [4, 4] [====================================================================================================]100% est: 0s
+## plot: [1, 1] [====>-------------------------------------------------------------------------] 6% est: 0s
+## plot: [1, 2] [=========>--------------------------------------------------------------------] 12% est: 0s
+## plot: [1, 3] [==============>---------------------------------------------------------------] 19% est: 1s
+## plot: [1, 4] [===================>----------------------------------------------------------] 25% est: 1s
+## plot: [2, 1] [=======================>------------------------------------------------------] 31% est: 1s
+## plot: [2, 2] [============================>-------------------------------------------------] 38% est: 1s
+## plot: [2, 3] [=================================>--------------------------------------------] 44% est: 0s
+## plot: [2, 4] [======================================>---------------------------------------] 50% est: 0s
+## plot: [3, 1] [===========================================>----------------------------------] 56% est: 0s
+## plot: [3, 2] [================================================>-----------------------------] 62% est: 0s
+## plot: [3, 3] [=====================================================>------------------------] 69% est: 0s
+## plot: [3, 4] [=========================================================>--------------------] 75% est: 0s
+## plot: [4, 1] [==============================================================>---------------] 81% est: 0s
+## plot: [4, 2] [===================================================================>----------] 88% est: 0s
+## plot: [4, 3] [========================================================================>-----] 94% est: 0s
+## plot: [4, 4] [==============================================================================]100% est: 0s
 ```
 
-![plot of chunk unnamed-chunk-19](fig/4-ExploratoryAnalysis/unnamed-chunk-19-1.png)
+![plot of chunk unnamed-chunk-17](fig/4-ExploratoryAnalysis/unnamed-chunk-17-1.png)
 
-## Advanced matrix dispersion with the classifier
+#### Advanced matrix dispersion with the classifier
 
 
 ``` r
@@ -396,44 +422,44 @@ grf
 ```
 
 ```
-## plot: [1, 1] [===>------------------------------------------------------------------------------------------------] 4% est: 0s
-## plot: [1, 2] [=======>--------------------------------------------------------------------------------------------] 8% est: 1s
-## plot: [1, 3] [===========>----------------------------------------------------------------------------------------] 12% est: 9s
-## plot: [1, 4] [===============>------------------------------------------------------------------------------------] 16% est: 7s
-## plot: [1, 5] [===================>--------------------------------------------------------------------------------] 20% est: 6s
-## plot: [2, 1] [=======================>----------------------------------------------------------------------------] 24% est: 5s
-## plot: [2, 2] [===========================>------------------------------------------------------------------------] 28% est: 5s
-## plot: [2, 3] [===============================>--------------------------------------------------------------------] 32% est: 4s
-## plot: [2, 4] [===================================>----------------------------------------------------------------] 36% est: 4s
-## plot: [2, 5] [=======================================>------------------------------------------------------------] 40% est: 3s
-## plot: [3, 1] [===========================================>--------------------------------------------------------] 44% est: 3s
-## plot: [3, 2] [===============================================>----------------------------------------------------] 48% est: 3s
-## plot: [3, 3] [===================================================>------------------------------------------------] 52% est: 2s
-## plot: [3, 4] [=======================================================>--------------------------------------------] 56% est: 2s
-## plot: [3, 5] [===========================================================>----------------------------------------] 60% est: 2s
-## plot: [4, 1] [===============================================================>------------------------------------] 64% est: 2s
-## plot: [4, 2] [===================================================================>--------------------------------] 68% est: 1s
-## plot: [4, 3] [=======================================================================>----------------------------] 72% est: 1s
-## plot: [4, 4] [===========================================================================>------------------------] 76% est: 1s
-## plot: [4, 5] [===============================================================================>--------------------] 80% est: 1s
-## plot: [5, 1] [===================================================================================>----------------] 84% est: 1s
+## plot: [1, 1] [==>---------------------------------------------------------------------------] 4% est: 0s
+## plot: [1, 2] [=====>------------------------------------------------------------------------] 8% est: 1s
+## plot: [1, 3] [========>---------------------------------------------------------------------] 12% est: 1s
+## plot: [1, 4] [===========>------------------------------------------------------------------] 16% est: 1s
+## plot: [1, 5] [===============>--------------------------------------------------------------] 20% est: 1s
+## plot: [2, 1] [==================>-----------------------------------------------------------] 24% est: 1s
+## plot: [2, 2] [=====================>--------------------------------------------------------] 28% est: 1s
+## plot: [2, 3] [========================>-----------------------------------------------------] 32% est: 1s
+## plot: [2, 4] [===========================>--------------------------------------------------] 36% est: 1s
+## plot: [2, 5] [==============================>-----------------------------------------------] 40% est: 1s
+## plot: [3, 1] [=================================>--------------------------------------------] 44% est: 1s
+## plot: [3, 2] [====================================>-----------------------------------------] 48% est: 1s
+## plot: [3, 3] [========================================>-------------------------------------] 52% est: 1s
+## plot: [3, 4] [===========================================>----------------------------------] 56% est: 1s
+## plot: [3, 5] [==============================================>-------------------------------] 60% est: 1s
+## plot: [4, 1] [=================================================>----------------------------] 64% est: 1s
+## plot: [4, 2] [====================================================>-------------------------] 68% est: 1s
+## plot: [4, 3] [=======================================================>----------------------] 72% est: 0s
+## plot: [4, 4] [==========================================================>-------------------] 76% est: 0s
+## plot: [4, 5] [=============================================================>----------------] 80% est: 0s
+## plot: [5, 1] [=================================================================>------------] 84% est: 0s
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
  plot: [5, 2]
-## [=======================================================================================>------------] 88% est: 1s `stat_bin()`
+## [====================================================================>---------] 88% est: 0s `stat_bin()`
 ## using `bins = 30`. Pick better value with `binwidth`.
  plot: [5, 3]
-## [===========================================================================================>--------] 92% est: 0s `stat_bin()`
+## [=======================================================================>------] 92% est: 0s `stat_bin()`
 ## using `bins = 30`. Pick better value with `binwidth`.
  plot: [5, 4]
-## [===============================================================================================>----] 96% est: 0s `stat_bin()`
+## [==========================================================================>---] 96% est: 0s `stat_bin()`
 ## using `bins = 30`. Pick better value with `binwidth`.
  plot: [5, 5]
-## [====================================================================================================]100% est: 0s
+## [==============================================================================]100% est: 0s
 ```
 
-![plot of chunk unnamed-chunk-20](fig/4-ExploratoryAnalysis/unnamed-chunk-20-1.png)
+![plot of chunk unnamed-chunk-18](fig/4-ExploratoryAnalysis/unnamed-chunk-18-1.png)
 
-## Parallel coordinates
+#### Parallel coordinates
 
 
 ``` r
@@ -443,9 +469,9 @@ grf <- ggparcoord(data = iris, columns = c(1:4), group=5) +
 plot(grf)
 ```
 
-![plot of chunk unnamed-chunk-21](fig/4-ExploratoryAnalysis/unnamed-chunk-21-1.png)
+![plot of chunk unnamed-chunk-19](fig/4-ExploratoryAnalysis/unnamed-chunk-19-1.png)
 
-## Images
+#### Images
 
 
 ``` r
@@ -459,9 +485,9 @@ axis(2, at = seq(0, ncol(mat), by = 1))
 axis(1, at = seq(0, nrow(mat), by = 10))
 ```
 
-![plot of chunk unnamed-chunk-22](fig/4-ExploratoryAnalysis/unnamed-chunk-22-1.png)
+![plot of chunk unnamed-chunk-20](fig/4-ExploratoryAnalysis/unnamed-chunk-20-1.png)
 
-## Chernoff faces
+#### Chernoff faces
 
 
 ``` r
@@ -475,11 +501,9 @@ isample$Species <- NULL
 faces(isample, labels = labels, print.info=F, cex=1)
 ```
 
-```
-## Error in faces(isample, labels = labels, print.info = F, cex = 1): não foi possível encontrar a função "faces"
-```
+![plot of chunk unnamed-chunk-21](fig/4-ExploratoryAnalysis/unnamed-chunk-21-1.png)
 
-## Chernoff faces with the classifier
+#### Chernoff faces with the classifier
 
 
 ``` r
@@ -493,7 +517,5 @@ isample$Species <- NULL
 faces(isample, labels = labels, print.info=F, cex=1)
 ```
 
-```
-## Error in faces(isample, labels = labels, print.info = F, cex = 1): não foi possível encontrar a função "faces"
-```
+![plot of chunk unnamed-chunk-22](fig/4-ExploratoryAnalysis/unnamed-chunk-22-1.png)
 
