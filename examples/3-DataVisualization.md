@@ -81,3 +81,18 @@ plot(grf)
 ```
 
 ![plot of chunk unnamed-chunk-7](fig/3-DataVisualization/unnamed-chunk-7-1.png)
+
+
+#### Lollipop plot
+
+
+
+``` r
+library(dplyr)
+data <- iris |> group_by(Species) |> summarize(Sepal.Length=mean(Sepal.Length))
+#head(data)
+grf <- plot_lollipop(data, colors=colors[1], max_value_gap=0.1) + font + coord_flip() 
+plot(grf)
+```
+
+![plot of chunk unnamed-chunk-8](fig/3-DataVisualization/unnamed-chunk-8-1.png)
