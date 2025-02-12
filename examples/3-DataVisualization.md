@@ -162,20 +162,20 @@ plot(grf)
 
 
 ``` r
-example <- data.frame(exponencial = rexp(10000, rate = 1),
+example <- data.frame(exponential = rexp(10000, rate = 1),
                       uniform = runif(10000, min=2.5, max = 3.5),
                       normal = rnorm(10000, mean = 5))
 head(example)
 ```
 
 ```
-##   exponencial  uniform   normal
-## 1   0.8229893 3.300402 6.693941
-## 2   0.1303485 3.485953 5.982069
-## 3   2.7363322 2.529762 5.345167
-## 4   0.3149655 2.845463 3.473553
-## 5   0.9291686 3.475409 5.009096
-## 6   0.1353375 3.079383 4.428235
+##   exponential  uniform   normal
+## 1  2.36136068 3.230038 6.004124
+## 2  1.72497382 2.889552 2.879427
+## 3  0.12857232 2.544311 4.995748
+## 4  0.40031280 3.457224 5.301014
+## 5  0.06609031 3.327919 3.521133
+## 6  2.47261112 2.762895 5.359585
 ```
 
 
@@ -184,24 +184,11 @@ head(example)
 
 ``` r
 library(dplyr)
-data <- example |> dplyr::select(exponential)
-```
-
-```
-## Error in `dplyr::select()`:
-## ! Can't select columns that don't exist.
-## ✖ Column `exponential` doesn't exist.
-```
-
-``` r
+data <- example |> select(exponential)
 #head(data)
 grf <- plot_hist(data, label_x = "exponential", color=colors[1]) + font
 ```
 
 ```
-## Using Species as id variables
-```
-
-```
-## Error in hist.default(series$value, plot = FALSE): número inválido de 'breaks'
+## Using  as id variables
 ```
