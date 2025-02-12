@@ -142,4 +142,5 @@ library(dplyr)
 data <- example |> select(exponential)
 #head(data)
 grf <- plot_hist(data, label_x = "exponential", color=colors[1]) + font
+plot(grf)
 ```
