@@ -161,7 +161,6 @@ plot(grf)
 #### Data distribution example
 
 
-
 ``` r
 example <- data.frame(exponencial = rexp(10000, rate = 1),
                       uniform = runif(10000, min=2.5, max = 3.5),
@@ -171,23 +170,25 @@ head(example)
 
 ```
 ##   exponencial  uniform   normal
-## 1  0.65926515 2.577149 3.380406
-## 2  0.96877025 2.937234 5.967816
-## 3  0.05059315 2.758117 3.307216
-## 4  0.12027304 2.565390 4.780961
-## 5  5.31988220 2.641392 4.713785
-## 6  2.17472525 2.591428 3.539582
+## 1   0.8229893 3.300402 6.693941
+## 2   0.1303485 3.485953 5.982069
+## 3   2.7363322 2.529762 5.345167
+## 4   0.3149655 2.845463 3.473553
+## 5   0.9291686 3.475409 5.009096
+## 6   0.1353375 3.079383 4.428235
 ```
 
+
+#### Histogram
 
 
 ``` r
 library(dplyr)
-data <- example |> select(exponential)
+data <- example |> dplyr::select(exponential)
 ```
 
 ```
-## Error in `select()`:
+## Error in `dplyr::select()`:
 ## ! Can't select columns that don't exist.
 ## ✖ Column `exponential` doesn't exist.
 ```

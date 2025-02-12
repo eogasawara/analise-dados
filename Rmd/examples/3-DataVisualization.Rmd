@@ -127,7 +127,6 @@ plot(grf)
 
 #### Data distribution example
 
-
 ```{r}
 example <- data.frame(exponencial = rexp(10000, rate = 1),
                       uniform = runif(10000, min=2.5, max = 3.5),
@@ -136,9 +135,11 @@ head(example)
 ```
 
 
+#### Histogram
+
 ```{r fig.width=6, fig.height=4.5}
 library(dplyr)
-data <- example |> select(exponential)
+data <- example |> dplyr::select(exponential)
 #head(data)
 grf <- plot_hist(data, label_x = "exponential", color=colors[1]) + font
 ```
