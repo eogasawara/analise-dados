@@ -97,3 +97,17 @@ data <- iris |> group_by(Species) |> summarize(n = n())
 grf <- plot_pieplot(data, colors=colors[1:3]) + font
 plot(grf)
 ```
+
+
+#### Grouped bar
+
+
+```{r fig.width=6, fig.height=4.5}
+library(dplyr)
+data <- iris |> group_by(Species) |> summarize(Sepal.Length=mean(Sepal.Length), Sepal.Width=mean(Sepal.Width))
+
+#head(data)
+grf <- plot_groupedbar(data, colors=colors[1:2]) + font
+plot(grf)
+```
+

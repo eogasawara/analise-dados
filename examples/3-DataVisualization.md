@@ -124,3 +124,20 @@ plot(grf)
 ```
 
 ![plot of chunk unnamed-chunk-10](fig/3-DataVisualization/unnamed-chunk-10-1.png)
+
+
+#### Grouped bar
+
+
+
+``` r
+library(dplyr)
+data <- iris |> group_by(Species) |> summarize(Sepal.Length=mean(Sepal.Length), Sepal.Width=mean(Sepal.Width))
+
+#head(data)
+grf <- plot_groupedbar(data, colors=colors[1:2]) + font
+plot(grf)
+```
+
+![plot of chunk unnamed-chunk-11](fig/3-DataVisualization/unnamed-chunk-11-1.png)
+
