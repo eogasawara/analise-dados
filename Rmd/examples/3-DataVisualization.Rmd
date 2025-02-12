@@ -145,7 +145,7 @@ head(example)
 library(dplyr)
 data <- example |> select(exponential)
 #head(data)
-suppressWarnings(grf <- plot_hist(data, label_x = "exponential", color=colors[1]) + font)
+grf <- plot_hist(data, label_x = "exponential", color=colors[1]) + font
 plot(grf) 
 ```
 
@@ -156,10 +156,9 @@ plot(grf)
 
 ```{r fig.width=12, fig.height=4.5}
 library(gridExtra)  
-grfe <- plot_hist(example |> select(exponential), 
-                  label_x = "exponential", color=colors[1]) + font
-grfu <- plot_hist(example |> select(uniform), 
-                  label_x = "uniform", color=colors[1]) + font 
-grfn <- plot_hist(example |> select(normal), 
-                  label_x = "normal", color=colors[1]) + font 
+suppressWarnings({
+grfe <- plot_hist(example |> select(exponential), label_x = "exponential", color=colors[1]) + font
+grfu <- plot_hist(example |> select(uniform), label_x = "uniform", color=colors[1]) + font 
+grfn <- plot_hist(example |> select(normal), label_x = "normal", color=colors[1]) + font
+})
 grid.arrange(grfe, grfu, grfn, ncol=3)

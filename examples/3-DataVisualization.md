@@ -170,12 +170,12 @@ head(example)
 
 ```
 ##   exponential  uniform   normal
-## 1  0.27917479 2.652692 5.160984
-## 2  1.04363853 3.484817 6.309846
-## 3  4.24100341 2.513868 4.289188
-## 4  0.21402575 2.529292 5.583072
-## 5  0.43153554 3.092940 5.549629
-## 6  0.06135224 3.472157 6.320404
+## 1   3.1545452 3.433803 4.716025
+## 2   0.1710278 3.324831 5.606031
+## 3   0.1940991 2.788283 3.988503
+## 4   0.1896065 2.984705 3.980559
+## 5   0.4751447 2.910165 5.213665
+## 6   0.8023428 2.733757 6.696009
 ```
 
 
@@ -188,7 +188,7 @@ head(example)
 library(dplyr)
 data <- example |> select(exponential)
 #head(data)
-suppressWarnings(grf <- plot_hist(data, label_x = "exponential", color=colors[1]) + font)
+grf <- plot_hist(data, label_x = "exponential", color=colors[1]) + font
 ```
 
 ```
@@ -209,29 +209,16 @@ plot(grf)
 
 ``` r
 library(gridExtra)  
-grfe <- plot_hist(example |> select(exponential), 
-                  label_x = "exponential", color=colors[1]) + font
+suppressWarnings({
+grfe <- plot_hist(example |> select(exponential), label_x = "exponential", color=colors[1]) + font
+grfu <- plot_hist(example |> select(uniform), label_x = "uniform", color=colors[1]) + font 
+grfn <- plot_hist(example |> select(normal), label_x = "normal", color=colors[1]) + font
+})
 ```
 
 ```
 ## Using  as id variables
-```
-
-``` r
-grfu <- plot_hist(example |> select(uniform), 
-                  label_x = "uniform", color=colors[1]) + font 
-```
-
-```
 ## Using  as id variables
-```
-
-``` r
-grfn <- plot_hist(example |> select(normal), 
-                  label_x = "normal", color=colors[1]) + font 
-```
-
-```
 ## Using  as id variables
 ```
 
