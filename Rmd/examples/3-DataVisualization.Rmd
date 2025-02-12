@@ -136,7 +136,7 @@ head(example)
 
 
 ```{r}
-suppressWarnings() 
+
 ```
 
 #### Histogram
@@ -145,8 +145,8 @@ suppressWarnings()
 library(dplyr)
 data <- example |> select(exponential)
 #head(data)
-grf <- plot_hist(data, label_x = "exponential", color=colors[1]) + font
-plot(grf)
+suppressWarnings(grf <- plot_hist(data, label_x = "exponential", color=colors[1]) + font)
+plot(grf) 
 ```
 
 

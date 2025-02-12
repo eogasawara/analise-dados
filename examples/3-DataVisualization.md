@@ -170,23 +170,16 @@ head(example)
 
 ```
 ##   exponential  uniform   normal
-## 1  0.70352955 3.293809 6.913939
-## 2  2.54851510 2.665187 3.623018
-## 3  0.02192308 2.873872 3.627698
-## 4  1.06359727 3.339329 5.856955
-## 5  0.42391636 3.294677 4.994471
-## 6  0.39784867 3.387994 6.022813
+## 1  0.27917479 2.652692 5.160984
+## 2  1.04363853 3.484817 6.309846
+## 3  4.24100341 2.513868 4.289188
+## 4  0.21402575 2.529292 5.583072
+## 5  0.43153554 3.092940 5.549629
+## 6  0.06135224 3.472157 6.320404
 ```
 
 
 
-``` r
-suppressWarnings() 
-```
-
-```
-## Error in suppressWarnings(): argumento "expr" ausente, sem padrão
-```
 
 #### Histogram
 
@@ -195,7 +188,7 @@ suppressWarnings()
 library(dplyr)
 data <- example |> select(exponential)
 #head(data)
-grf <- plot_hist(data, label_x = "exponential", color=colors[1]) + font
+suppressWarnings(grf <- plot_hist(data, label_x = "exponential", color=colors[1]) + font)
 ```
 
 ```
@@ -203,7 +196,7 @@ grf <- plot_hist(data, label_x = "exponential", color=colors[1]) + font
 ```
 
 ``` r
-plot(grf)
+plot(grf) 
 ```
 
 ![plot of chunk unnamed-chunk-15](fig/3-DataVisualization/unnamed-chunk-15-1.png)
@@ -216,20 +209,6 @@ plot(grf)
 
 ``` r
 library(gridExtra)  
-```
-
-```
-## 
-## Anexando pacote: 'gridExtra'
-```
-
-```
-## O seguinte objeto é mascarado por 'package:dplyr':
-## 
-##     combine
-```
-
-``` r
 grfe <- plot_hist(example |> select(exponential), 
                   label_x = "exponential", color=colors[1]) + font
 ```
