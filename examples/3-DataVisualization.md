@@ -141,3 +141,20 @@ plot(grf)
 
 ![plot of chunk unnamed-chunk-11](fig/3-DataVisualization/unnamed-chunk-11-1.png)
 
+
+#### Stacked-bar
+
+
+
+``` r
+library(dplyr)
+data <- iris |> group_by(Species) |> summarize(Sepal.Length=mean(Sepal.Length), Sepal.Width=mean(Sepal.Width))
+
+#head(data)
+grf <- plot_stackedbar(data, colors=colors[1:2]) + font
+grf <- grf + theme(axis.text.x = element_text(angle=90, hjust=1))
+plot(grf)
+```
+
+![plot of chunk unnamed-chunk-12](fig/3-DataVisualization/unnamed-chunk-12-1.png)
+
