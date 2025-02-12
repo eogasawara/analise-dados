@@ -103,7 +103,7 @@ plot(grf)
 
 ``` r
 library(dplyr)
-data <- iris |> group_by(Species) |> summarize(Sepal.Length=mean(Sepal.Length))
+data <- iris |> group_by(Species) |> summarize(n = n())
 #head(data)
 grf <- plot_pieplot(data, colors=colors[1:3]) + font
 plot(grf)
