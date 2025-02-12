@@ -185,7 +185,7 @@ plot(grf)
 library(dplyr)
 data <- example |> select(normal)
 #head(data)
-grf <- plot_boxplot(data, label_x = "normal", color=colors[1]) + font
+grf <- plot_boxplot(data, label_x = "normal", color="white") + font
 plot(grf) 
 }
 
