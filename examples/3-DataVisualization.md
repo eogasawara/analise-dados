@@ -91,7 +91,7 @@ plot(grf)
 library(dplyr)
 data <- iris |> group_by(Species) |> summarize(Sepal.Length=mean(Sepal.Length))
 #head(data)
-grf <- plot_lollipop(data, colors=colors[1], max_value_gap=0.1) + font + coord_flip() 
+grf <- plot_lollipop(data, colors=colors[1], max_value_gap=0.2) + font + coord_flip() 
 plot(grf)
 ```
 
