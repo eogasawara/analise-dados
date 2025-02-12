@@ -162,31 +162,27 @@ grfu <- plot_hist(example |> select(uniform), label_x = "uniform", color=colors[
 grfn <- plot_hist(example |> select(normal), label_x = "normal", color=colors[1]) + font
 grid.arrange(grfe, grfu, grfn, ncol=3)
 }
-
+```
 
 #### Density plot
 
 
 ```{r fig.width=6, fig.height=4.5}
-{
 library(dplyr)
 data <- example |> select(normal)
 #head(data)
 grf <- plot_density(data, label_x = "normal", color=colors[1]) + font
 plot(grf) 
-}
-
+```
 
 #### Box plot
 
 
 ```{r fig.width=6, fig.height=4.5}
-{
 library(dplyr)
 data <- example |> select(normal)
 #head(data)
 grf <- plot_boxplot(data, label_x = "normal", color="white") + font
 plot(grf) 
-}
-
+```
 
