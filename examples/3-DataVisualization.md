@@ -60,9 +60,24 @@ font <- theme(text = element_text(size=16))
 
 ``` r
 library(dplyr)
-grf <- plot_scatter(iris |> select(x = Sepal.Length, value = Sepal.Width, variable = Species), 
-                    label_x = "Sepal.Length", label_y = "Sepal.Width", colors=colors[1:3]) + font
+data <- iris |> select(x = Sepal.Length, value = Sepal.Width, variable = Species)
+#head(data)
+grf <- plot_scatter(data, label_x = "Sepal.Length", label_y = "Sepal.Width", colors=colors[1:3]) + font
 plot(grf)
 ```
 
 ![plot of chunk unnamed-chunk-6](fig/3-DataVisualization/unnamed-chunk-6-1.png)
+
+#### Bar plot
+
+
+
+``` r
+library(dplyr)
+data <- iris |> group_by(Species) |> summarize(Sepal.Length=mean(Sepal.Length))
+#head(data)
+grf <- plot_bar(data, colors=colors[1:3]) + font
+plot(grf)
+```
+
+![plot of chunk unnamed-chunk-7](fig/3-DataVisualization/unnamed-chunk-7-1.png)
