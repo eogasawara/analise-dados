@@ -170,14 +170,23 @@ head(example)
 
 ```
 ##   exponential  uniform   normal
-## 1  0.27047704 3.267173 6.286138
-## 2  1.57977869 3.231689 4.999860
-## 3  0.51687200 2.677039 6.695311
-## 4  0.07864534 2.963611 5.975103
-## 5  0.18121885 3.429407 5.695507
-## 6  0.66054346 2.736453 6.620033
+## 1  0.70352955 3.293809 6.913939
+## 2  2.54851510 2.665187 3.623018
+## 3  0.02192308 2.873872 3.627698
+## 4  1.06359727 3.339329 5.856955
+## 5  0.42391636 3.294677 4.994471
+## 6  0.39784867 3.387994 6.022813
 ```
 
+
+
+``` r
+suppressWarnings() 
+```
+
+```
+## Error in suppressWarnings(): argumento "expr" ausente, sem padrão
+```
 
 #### Histogram
 
@@ -197,4 +206,58 @@ grf <- plot_hist(data, label_x = "exponential", color=colors[1]) + font
 plot(grf)
 ```
 
-![plot of chunk unnamed-chunk-14](fig/3-DataVisualization/unnamed-chunk-14-1.png)
+![plot of chunk unnamed-chunk-15](fig/3-DataVisualization/unnamed-chunk-15-1.png)
+
+
+#### Multiple Histograms
+
+
+
+
+``` r
+library(gridExtra)  
+```
+
+```
+## 
+## Anexando pacote: 'gridExtra'
+```
+
+```
+## O seguinte objeto é mascarado por 'package:dplyr':
+## 
+##     combine
+```
+
+``` r
+grfe <- plot_hist(example |> select(exponential), 
+                  label_x = "exponential", color=colors[1]) + font
+```
+
+```
+## Using  as id variables
+```
+
+``` r
+grfu <- plot_hist(example |> select(uniform), 
+                  label_x = "uniform", color=colors[1]) + font 
+```
+
+```
+## Using  as id variables
+```
+
+``` r
+grfn <- plot_hist(example |> select(normal), 
+                  label_x = "normal", color=colors[1]) + font 
+```
+
+```
+## Using  as id variables
+```
+
+``` r
+grid.arrange(grfe, grfu, grfn, ncol=3)
+```
+
+![plot of chunk unnamed-chunk-16](fig/3-DataVisualization/unnamed-chunk-16-1.png)
