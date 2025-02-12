@@ -73,7 +73,7 @@ if (FALSE) {
 
 
 if (TRUE) {
-  convert_rmd_md("Rmd/examples/2-R-Basics.Rmd")
+  convert_rmd_md("Rmd/examples/3-DataVisualization.Rmd")
 }
 
 

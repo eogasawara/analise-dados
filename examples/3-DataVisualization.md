@@ -1,3 +1,16 @@
+#### Plotting charts
+
+
+``` r
+# The easiest way to get ggplot2 is to install the whole tidyverse
+#install.packages("tidyverse")
+#install.packages("ggplot2")
+
+# It is also important to choose the right colors
+#install.packages("RColorBrewer")
+```
+
+
 # Data visualization
 Data visualization
 
