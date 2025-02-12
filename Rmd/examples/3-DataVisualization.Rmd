@@ -28,7 +28,7 @@ colors <- brewer.pal(4, 'Set1')
 Iris datasets
 
 ```{r}
-head(iris)
+head(iris, 3)
 ```
 
 Options from graphics: colors and font size
