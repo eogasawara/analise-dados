@@ -66,7 +66,7 @@ grf <- plot_scatter(data, label_x = "Sepal.Length", label_y = "Sepal.Width", col
 plot(grf)
 ```
 
-![plot of chunk unnamed-chunk-6](fig/3-DataVisualization/unnamed-chunk-6-1.png)
+![plot of chunk unnamed-chunk-15](fig/3-DataVisualization/unnamed-chunk-15-1.png)
 
 #### Bar plot
 
@@ -80,7 +80,7 @@ grf <- plot_bar(data, colors=colors[1:3]) + font
 plot(grf)
 ```
 
-![plot of chunk unnamed-chunk-7](fig/3-DataVisualization/unnamed-chunk-7-1.png)
+![plot of chunk unnamed-chunk-16](fig/3-DataVisualization/unnamed-chunk-16-1.png)
 
 
 #### Lollipop plot
@@ -95,7 +95,7 @@ grf <- plot_lollipop(data, colors=colors[1], max_value_gap=0.2) + font + coord_f
 plot(grf)
 ```
 
-![plot of chunk unnamed-chunk-8](fig/3-DataVisualization/unnamed-chunk-8-1.png)
+![plot of chunk unnamed-chunk-17](fig/3-DataVisualization/unnamed-chunk-17-1.png)
 
 #### Pie plot
 
@@ -109,5 +109,5 @@ grf <- plot_pieplot(data, colors=colors[1:3]) + font
 plot(grf)
 ```
 
-![plot of chunk unnamed-chunk-9](fig/3-DataVisualization/unnamed-chunk-9-1.png)
+![plot of chunk unnamed-chunk-18](fig/3-DataVisualization/unnamed-chunk-18-1.png)
 
