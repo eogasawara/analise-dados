@@ -1,14 +1,14 @@
-# Metodologia Cientifica - Apresentacoes
+# Análise de Dados
 
-Este repositorio reune os slides de metodologia cientifica aplicados a jornada de analise de dados. Cada PDF esta numerado na ordem sugerida para estudo.
+Este repositório reúne os slides de Análise de Dados da Jornada de Ciência de Dados. Cada PDF está numerado na ordem sugerida para estudo.
 
 1. **Jornada em Ciencia de Dados** - [0-JornadaCienciaDados.pdf](0-JornadaCienciaDados.pdf)
-   Mapa geral da trilha de ciencia de dados, as fases do projeto e as competencias esperadas em cada etapa.
+   Mapa geral da trilha de ciência de dados, as fases do projeto e as competências esperadas em cada etapa.
 2. **Introducao** - [1-Introduction.pdf](1-Introduction.pdf)
-   Conceitos basicos de metodologia cientifica, formulacao de problemas e hipoteses, e como organizar o estudo.
+   Conceitos básicos de metodologia científica, formulação de problemas e hipóteses e como organizar o estudo.
 3. **Fundamentos de R** - [2-R-Basics.pdf](2-R-Basics.pdf)
-   Visao rapida da linguagem R: objetos, vetores, data frames, leitura de dados e operacoes essenciais para praticar os exemplos.
+   Visão rápida da linguagem R: objetos, vetores, data frames, leitura de dados e operações essenciais para praticar os exemplos.
 4. **Visualizacao de Dados** - [3-DataVisualization.pdf](3-DataVisualization.pdf)
-   Principios para criar graficos claros, exemplos com ggplot2 e orientacoes para escolher visualizacoes conforme a pergunta analitica.
+   Princípios para criar gráficos claros, exemplos com ggplot2 e orientações para escolher visualizações de acordo com a pergunta analítica.
 5. **Analise Exploratoria** - [4-ExploratoryAnalysis.pdf](4-ExploratoryAnalysis.pdf)
-   Tecnicas iniciais de inspecao, limpeza, sumarizacao e deteccao de padroes ou outliers para orientar os proximos passos.
+   Técnicas iniciais de inspeção, limpeza, sumarização e detecção de padrões ou outliers para orientar os próximos passos.
